@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.viewBooks {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(170px,1fr));
+  margin: 0 auto;
+  width: 1300px;
+
+  .mat-card {
+    position: relative;
+    width: 160px;
+    background-color: #d1caf3;
+    margin: 10px;
+
+    .mat-icon-button.edit {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      background-color: #faf6df;
+      width: 30px;
+      height: 30px;
+    }
+
+    .mat-card-image {
+      height: 250px;
+      margin-bottom: 0;
+    }
+
+    .mat-card-actions {
+      display: flex;
+      justify-content: space-between;
+
+
+      .mat-icon {
+        color: #656564;
+
+        .edit {
+          margin-left: 30%;
+        }
+      }
+
+      .mat-icon.liked {
+        color: gold;
+      }
+    }
+  }
+}
+ 
+
+
+

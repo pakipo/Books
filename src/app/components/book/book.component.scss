@@ -1,0 +1,34 @@
+.container {
+   padding-top:50px;
+ .content{
+  width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(6, [col] 1fr);
+  grid-template-rows: repeat(3, [row] auto) ;
+  gap:20px;
+  img{
+  width: 200px;
+  height: 300px;
+}
+.img.item{
+    justify-self:center;
+}
+
+.info.item {
+  background-color: #bfe0e6f5;
+  padding: 1em;
+  grid-column: span 5;
+}
+.autorBooks.item {
+  
+  background-color: #0094ff;
+  grid-column: span 6;
+}
+.styleBooks.item {
+  
+  background-color: #ff6a00;
+  grid-column: span 6;
+}
+}
+}

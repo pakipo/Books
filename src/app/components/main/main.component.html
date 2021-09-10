@@ -1,0 +1,18 @@
+
+
+<div class="viewBooks"  #viewBooks>
+ 
+  
+
+    <mat-card class="card"  #card  *ngFor="let book of allBooks">
+      <img hoverCard mat-card-image src={{img}}{{book.img}} alt="Photo of a Shiba Inu"  (click)="goToBook(book.id)">
+      <button *ngIf="userType==='admin'" mat-icon-button class="edit"><span><mat-icon>create</mat-icon></span></button>
+      <mat-card-actions>
+        <div> <button mat-icon-button (click)="liked($event,book)" [disabled]="userType === 'guest'"><mat-icon [ngClass]="likedClass(book)">favorite</mat-icon></button><span>{{book.liked.length}}</span></div>
+        <div><button mat-icon-button disabled><mat-icon>visibility</mat-icon></button><span>{{book.views}}</span></div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+
+

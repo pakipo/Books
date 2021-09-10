@@ -1,0 +1,99 @@
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+.container {
+
+  .toolBar {
+    padding-left: 2%;
+    display: flex;
+    justify-content: space-between;
+
+    .tool {
+      display: flex;
+      justify-content: space-around;
+
+      .search {
+      }
+    }
+  }
+
+
+  .title {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+.content{
+    position:relative;
+    min-height:100vh;
+}
+
+
+  .btn {
+    display: flex;
+    justify-content: space-around;
+
+    .login {
+    }
+  }
+
+  .formwin {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: #edede5;
+    opacity: 1;
+    top:0;
+    left:0;
+
+    .formblock {
+      position: absolute;
+      width: 30%;
+      height: 30%;
+      top: 10%;
+      left: 35%;
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-items: center;
+
+
+      .inp {
+        width: 100%;
+      }
+    }
+
+    .btns {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10%;
+    }
+
+    .pReg {
+      text-align: center;
+      margin-top: 20px;
+      text-decoration: underline;
+    }
+
+    .telInp {
+      width: 100%;
+
+      .country {
+        width: 19%;
+      }
+
+      .tel {
+        width: 80%;
+        margin-left: 1%;
+      }
+    }
+  }
+}
+:hover .pReg {
+  cursor: pointer;
+  color: #673ab7;
+}
+
