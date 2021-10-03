@@ -4,6 +4,6 @@ export interface IUser {
   password: string;
   phone: Array<string>;
   email: string;
-  vieweBooks: Array<string> | [];
-  favoriteBooks: Array<string> | [];
+  vieweBooks: Array<number> | [];
+  favoriteBooks: Array<number> | [];
 }

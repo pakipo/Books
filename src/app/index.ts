@@ -19,12 +19,16 @@ export * from "./classes/User"
 //перечисления
 export * from "./shared/enum/styleBook"
 export * from "./shared/enum/userType"
+export * from "./shared/enum/date"
+export * from "./shared/enum/city"
+export * from "./shared/enum/ country"
 
 
 
 //компоненты
 export * from "./components/main/main.component"
 export * from "./components/book/book.component"
+export * from "./components/autor/autor.component"
 
 
 //валидаторы

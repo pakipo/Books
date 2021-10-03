@@ -46,15 +46,19 @@ export class ApiRequestService {
     return this.http.get(apiEndPoints.book)
   }
 
-  getBook(id: string) {
-    console.log('!!')
-    return this.http.get(apiEndPoints.book + `/${id}`)
+  getBook(id: number) {
+      return this.http.get(apiEndPoints.book + `/${id}`)
   }
 
   createBook(book: Book) {
     return this.http.post(apiEndPoints.book, book)
   }
   updateBook(book: Book) {
-    return this.http.put(apiEndPoints.book, book)
+    return this.http.put(apiEndPoints.book, book).subscribe(res => {
+      let book = res;
+      return book;
+    }
+
+    )
   }
 }

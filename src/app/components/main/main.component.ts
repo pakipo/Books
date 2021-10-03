@@ -1,5 +1,5 @@
-import { Component, ElementRef, ViewChild, AfterViewInit, OnInit, OnChanges, Input } from '@angular/core';
-import { AutorService, UserService, BookService, Autor, styleBook, User, Book, userType } from '../../index';
+import { Component, OnInit,} from '@angular/core';
+import {UserService, BookService, User, Book, userType} from '../../index';
 import { Router } from '@angular/router';
 
 
@@ -28,37 +28,12 @@ export class MainComponent implements OnInit {
   }
 
   liked(e: Event, book: Book) {
-    e.stopPropagation();
-    let user: User | null = this.userservice.getUser();
-    let idIndex!:number;
-    let liked = user?.favoriteBooks?.find((item, index) => {
-      idIndex = index;
-      return item === book.id
-    })
-
-    if (liked) {
-      user?.favoriteBooks.splice(idIndex, 1);
-      book.liked.find((item, index) => {
-        idIndex = index;
-        return item === user?.id;
-      });
-      book.liked.splice(idIndex, 1)
-
-    } else {
-      user?.favoriteBooks.push(book.id);
-      user?.id ? book.liked.push(user.id) : null
-    }
-    
-    this.userservice.setUser(user)
-    user ? this.userservice.updateUser(user) : null;
-    this.bookservis.updateBook(book)
-
-    console.log(book)
+    this.bookservis.liked(e, book);
   }
 
   likedClass(book: Book) {
     let id = this.userservice.getUser()?.favoriteBooks.find(item => item === book.id)
-   return id  ? 'liked':''
+    return id ? 'liked' : ''
   }
 
   goToBook(id: string) {

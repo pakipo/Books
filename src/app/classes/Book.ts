@@ -1,13 +1,13 @@
 import { IBook,styleBook } from '../index'
 
 export class Book implements IBook {
-  id: string;
+  id: number;
   title: string;
   pageCount: number;
   style: styleBook;
   img: string | null;
   shortDescription: string;
-  autorId: string;
+  autorId: number;
   releaseDate: Date;
   views!: number;
   liked!: string[];
@@ -18,9 +18,9 @@ export class Book implements IBook {
     style: styleBook,
     shortDescription: string,
     img: string,
-    autorId: string,
+    autorId: number,
     releaseDate: Date,
-    id: string,
+    id: number,
     views: number | null,
     liked: Array<string> | null
       ) {
@@ -29,7 +29,6 @@ export class Book implements IBook {
     this.shortDescription = shortDescription;
     this.style = style;
     img ? this.img = img : this.img = null;
-    console.log(releaseDate)
     this.releaseDate = releaseDate;
     this.autorId = autorId;
     this.id = id

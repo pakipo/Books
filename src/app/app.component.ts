@@ -3,6 +3,7 @@ import { UserService, Autor, User, userType, MainComponent, passNameCheck, Valid
 import { FormGroup, Validators, FormBuilder} from '@angular/forms';
 import { take } from 'rxjs/operators';
 import { Observer, Subject } from 'rxjs';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -26,7 +27,8 @@ export class AppComponent implements OnInit {
   constructor(
     private userservice: UserService,
     private rendere: Renderer2,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.userservice.userTypSubj.subscribe(res => {
@@ -137,7 +139,10 @@ export class AppComponent implements OnInit {
       return this.errMess[fildName][err];}
   }
  
- 
+  mainPage() {
+ this.router.navigate(['']);
+    
+  }
 }
 
 

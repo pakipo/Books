@@ -3,13 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
+    "\\src\\app\\classes",
     "\\src\\app\\components",
+    "\\src\\app\\components\\card",
     "\\src\\app\\components\\main",
     "\\src\\app\\shared",
-    "\\src\\app\\shared\\enum",
-    "\\src\\app\\shared\\interfaces",
     "\\src\\app\\shared\\services",
-    "\\src\\app\\shared\\validators"
+    "\\src\\environments"
   ],
+  "SelectedNode": "\\src\\app\\components\\book\\book.component.ts",
   "PreviewInSolutionExplorer": false
 }

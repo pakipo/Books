@@ -7,9 +7,9 @@ export class User implements IUser{
   password: string
  phone:Array<string>;
   email: string;
-  vieweBooks: Array<string>;
-  favoriteBooks: Array<string>;
-  constructor(name: string, password: string, email: string, id: string | null, phone: Array<string> | null, favoriteBooks: Array<string> | null, vieweBooks: Array<string> | null) {
+  vieweBooks: Array<number>;
+  favoriteBooks: Array<number>;
+  constructor(name: string, password: string, email: string, id: string | null, phone: Array<string> | null, favoriteBooks: Array<number> | null, vieweBooks: Array<number> | null) {
     id ? this.id = id : this.id = null;
     this.password = password;
     this.userName = name;

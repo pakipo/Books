@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { ApiRequestService, Book } from '../../index';
+import { ApiRequestService, UserService, Book, Month, User } from '../../index';
 
 
 @Injectable({
@@ -8,17 +8,83 @@ import { ApiRequestService, Book } from '../../index';
 })
 export class BookService {
 
-  constructor(private api: ApiRequestService) { }
+  constructor(
+    private api: ApiRequestService,
+    private userservice: UserService
+  ) { }
 
   getAllBooks() {
     return this.api.getBooks();  
   }
 
-  getBook(id: string) {
+  getBook(id: number) {
    return this.api.getBook(id)
   }
 
   updateBook(book: Book) {
    return this.api.updateBook(book)
   }
+
+  formatDate(date: Date) {
+    let dd;
+    let mm;
+    let yy;
+    date.getDate() < 10 ? dd = '0' + date.getDate() : dd = '' + date.getDate();
+    mm = Month[date.getMonth()]
+    yy = date.getFullYear();
+    return `${dd} ${mm} ${yy} г.`
+  }
+
+  liked(e: Event, book: Book) {
+    e.stopPropagation();
+    let user: User | null = this.userservice.getUser();
+    let idIndex!: number;
+    let liked = user?.favoriteBooks?.find((item, index) => {
+      idIndex = index;
+      return item === book.id
+    })
+
+    if (liked) {
+      user?.favoriteBooks.splice(idIndex, 1);
+      book.liked.find((item, index) => {
+        idIndex = index;
+        return item === user?.id;
+      });
+      book.liked.splice(idIndex, 1)
+
+    } else {
+      user?.favoriteBooks.push(book.id);
+      user?.id ? book.liked.push(user.id) : null
+    }
+
+    this.userservice.setUser(user)
+    user ? this.userservice.updateUser(user) : null;
+    this.updateBook(book)
+  }
+  //// получить массив id книг, вернуть массив Book
+  //BooksArrDisplayed(books: Array<number>, bookId?: number): Array<Book> {
+  //  console.log('bookarr')
+  //  let arrBook!: Array<Book>;
+  //  let book;
+  //  bookId ? books.splice(books.indexOf(bookId), 1) : null;
+  //  if (books.length < 7) {
+  //    books.map((id) => {
+  //      this.getBook(id).subscribe(res => {
+  //        book = res as Book;
+  //        arrBook.push(book);
+  //      })
+  //    })
+  //  }
+  //  else {
+  //    for (let i = 0; i < 7; i++) {
+  //      this.getBook(books[i]).subscribe(res => {
+  //        book = res as Book
+  //        arrBook.push(book)
+  //      })
+  //    }
+  //  }
+  //  console.log(arrBook)
+  //  return arrBook;
+  //}
+
 }

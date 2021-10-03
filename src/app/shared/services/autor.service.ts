@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/operators";
 import { Observable } from 'rxjs';
-import { Autor, Book, styleBook, IAutor, IUser,User } from '../../index';
-//import { IAutor,IUser } from '../interfaces/autor';
+import { Autor, Book, styleBook, IAutor, IUser, User, ApiRequestService } from '../../index';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AutorService {
 
-  constructor(private http: HttpClient) {}
-   
+  constructor(private api: ApiRequestService) {}
+
+  getAutor(id: number){
+    return this.api.getAutor(id)
+  }
   
 
  

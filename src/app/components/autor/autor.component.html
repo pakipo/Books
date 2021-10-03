@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="content">
+    <div class="img">
+      <img [src]="this.imgPath + this.autor.photo" alt="" />
+    </div>
+    <div class="info">
+      <p><span class="bold">Фамилия: </span>{{autor.surname}}</p>
+      <p><span class="bold">Имя: </span>{{autor.name}}</p>
+      <p *ngIf="autor.patronymic"><span class="bold">Отчество: </span>{{autor.patronymic}}</p>
+      <p *ngIf="autor.dateDeath"><span class="bold">Годы жизни: </span>{{birthDate}} - {{dateDeath}}</p>
+      <p *ngIf="!autor.dateDeath"><span class="bold">Дата рождения: </span>{{birthDate}}</p>
+      <p><span class="bold">Место рождения: </span>{{autor.country}}, {{autor.city}}</p>
+      <div class="btns">
+        <a [href]="this.autor.link" target="_blank"><button mat-raised-button color="primary">Перейти на страницу автора</button></a>
+      </div>
+    </div>
+    <div #biographyContent class="biography">
+      <h2>Краткая биография:</h2>
+      <p>
+        <span>{{biography}}</span>
+        <span class="dot"> ...</span>
+        <span class="mainText">{{biographyMain}}</span>
+
+      </p>
+      <div><button mat-raised-button color="primary" (click)="biographyDisplayed()">Читать полностью</button></div>
+    </div>
+    <div class="autorBooks">
+      <h2>Книги автора :</h2>
+      <div class="cards">
+        <ng-container *ngFor="let book of autorBooks">
+          <app-card [book]="book" [userType]="userType"></app-card>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

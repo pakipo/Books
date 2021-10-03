@@ -18,6 +18,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { map } from 'rxjs/operators';
 import { Ng2TelInputModule } from 'ng2-tel-input';
 import { BookComponent } from './components/book/book.component';
+import { CardComponent } from './components/card/card.component';
+import { AutorComponent } from './components/autor/autor.component';
+
 
 
 
@@ -32,6 +35,9 @@ import { BookComponent } from './components/book/book.component';
     OnlyNambersDirective,
     HoverCard,
     BookComponent,
+    CardComponent,
+    AutorComponent,
+  
    
   ],
   imports: [

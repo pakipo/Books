@@ -2,13 +2,13 @@ import { from } from "rxjs";
 import { styleBook } from '../../index'
 
 export interface IBook {
-  id?: string,
+  id?: number,
   title: string,
   pageCount: number,
   style: styleBook,
   img: string | null,
   shortDescription: string,
-  autorId: string,
+  autorId: number,
   releaseDate: Date,
   views: number,
   liked: string[]
