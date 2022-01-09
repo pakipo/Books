@@ -13,7 +13,10 @@ export class AutorService {
   getAutor(id: number){
     return this.api.getAutor(id)
   }
-  
+
+  updateAutor(autor: Autor) {
+    return this.api.updateAutor(autor);
+  }
 
  
 }

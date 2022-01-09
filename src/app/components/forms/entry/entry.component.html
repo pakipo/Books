@@ -1,0 +1,45 @@
+<div class="formwin">
+  <div class="formblock">
+    <form [formGroup]="formEntery" (ngSubmit)="submitEntForm(formEntery)">
+
+      <div>
+        <mat-form-field class="inp" appearance="fill">
+          <mat-label>Имя пользователя</mat-label>
+          <input #userName matInput type="text" value="" formControlName="userName" />
+          <mat-error *ngIf="formEntery.get('userName')?.hasError('required')||
+                              formEntery.get('userName')?.hasError('minlength')">
+            {{errMessage(formEntery,'userName')}}
+          </mat-error>
+          <mat-error *ngIf="formEntery.get('userName')?.hasError('passNameNone')"></mat-error>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="inp" appearance="fill">
+          <mat-label>Пароль</mat-label>
+          <input matInput type="password" value="" formControlName="password" />
+          <mat-error *ngIf="formEntery.get('password')?.hasError('required') ||
+                              formEntery.get('password')?.hasError('minlength')||
+                              formEntery.get('password')?.hasError('passNameNone') ">
+            {{errMessage(formEntery,'password')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+    </form>
+    <div class="btns">
+
+      <div class="btn">
+        <button mat-raised-button color="accent" (click)="formCancel(formEntery)">Отменa</button>
+      </div>
+      <div class="btn">
+        <button mat-raised-button type="submit" color="primary" (click)="submitEntForm(formEntery)">Вход</button>
+      </div>
+    </div>
+    <div class="pReg">
+      <p (click)=registrationFormView()>
+        Зарегистрироваться
+      </p>
+    </div>
+  </div>
+</div>

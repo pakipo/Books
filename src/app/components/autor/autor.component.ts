@@ -1,7 +1,17 @@
-import { Component, OnInit, ViewChild, ElementRef,Renderer2} from '@angular/core';
-import { AutorService, UserService, BookService, Autor, styleBook, Book, userType } from '../../index';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
+import {
+  AutorService,
+  UserService,
+  BookService,
+  Autor,
+  styleBook,
+  Book,
+  userType,
+  AuxiliaryService
+} from '../../index';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, concatMap } from 'rxjs/operators';
+
 @Component({
   selector: 'app-autor',
   templateUrl: './autor.component.html',
@@ -13,64 +23,54 @@ export class AutorComponent implements OnInit {
   userType!: userType;
   autorId!: number;
   autor!: Autor;
-  autorBooks: Array<Book> = [];
+  autorBooks!: Array<Book>;
   birthDate!: string;
   dateDeath?: string;
   biography!: string;
   biographyMain!: string;
-  
-
-
-
+  load: boolean = true;
   constructor(
     private autorService: AutorService,
     private route: ActivatedRoute,
     private router: Router,
     private bookService: BookService,
     private userService: UserService,
-    private render: Renderer2
+    private render: Renderer2,
+    private auxiliary: AuxiliaryService
   ) { }
   @ViewChild("biographyContent") biographyBlock!: ElementRef<HTMLElement>;
 
   ngOnInit(): void {
-
+    this.load = false;
+    this.auxiliary.preloaderCtrl(true);
     this.userService.userTypSubj.subscribe(res => {
-      this.userType = res as userType});
-    
-    this.route.params.subscribe(par => {
-      this.autorId = par.id;});
-       
+      this.userType = res as userType
+    });
 
-    this.autorService.getAutor(this.autorId).subscribe(
-      aut => {
+    this.route.params.pipe(
+      map(par => {
+
+        this.autorId = par.id;
+      }),
+
+      concatMap(() => { return this.autorService.getAutor(this.autorId) }),
+
+      concatMap((aut) => {
         this.autor = aut as Autor;
         this.biography = this.autor.briefBiography.slice(0, 150);
         this.biographyMain = this.autor.briefBiography.slice(151);
         this.birthDate = this.bookService.formatDate(new Date(this.autor.birthDate))
         this.dateDeath = this.autor.dateDeath ? this.bookService.formatDate(new Date(this.autor.dateDeath)) : '';
-        this.autorBooksInit(this.autor.dooksId);
-      });
-      
-  }
-  autorBooksInit(books: Array<number>) {
-    let book: Book;
-    if (books.length < 7) {
-      books.map((id) => {
-        this.bookService.getBook(id).subscribe(res => {
-          book = res as Book;
-          this.autorBooks.push(book);
-        })
+        return this.bookService.autorBooksInit(this.autor.dooksId)
+      })).subscribe(books => {
+        this.autorBooks = books as Array<Book>;
+        this.load = true;
+        this.auxiliary.preloaderCtrl(false)
+    
       })
-    }
-    else {
-      for (let i = 0; i < 7; i++) {
-        this.bookService.getBook(books[i]).subscribe(res => {
-          book = res as Book
-          this.autorBooks.push(book)
-        })
-      }
-    }
   }
+
+
   biographyDisplayed() {
     let dot = this.biographyBlock.nativeElement.querySelector('.dot');
     let main = this.biographyBlock.nativeElement.querySelector('.mainText');

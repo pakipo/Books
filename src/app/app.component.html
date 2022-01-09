@@ -2,163 +2,93 @@
   <header>
     <!--toolbar start -->
     <mat-toolbar color="primary" class="toolBar">
+      <div class="menu">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <span class="material-icons">
+            reorder
+          </span>
+        </button>
+        <mat-menu #menu="matMenu">
+
+          <button  mat-menu-item (click)="registration = true">Регистрация</button>
+          <button #login mat-menu-item class="login" (click)="enteryFormdisplayed()">{{ userType === 'guest' ? 'Вход' : 'Выход' }}</button>
+        </mat-menu>
+      </div>
       <div class="title">
-        <a class="mainPage" (click)="mainPage()">BOOKS</a>
+        <a
+           class="mainPage"
+           (click)="mainPage()"
+             matTooltip="Главная"
+             [matTooltipPosition]="'right'">BOOKS</a>
       </div>
       <div class="tool">
         <div class="btn">
-          <button mat-button>Авторы</button>
-          <button mat-button>Книги</button>
-          <button mat-button (click)="registrationFormView()">Регистрация</button>
-          <button #login mat-button class="login" (click)="enteryFormView()">{{ userType === 'guest' ? 'Вход' : 'Выход' }}</button>
+        
+          <button mat-button (click)="registration = true">Регистрация</button>
+          <button #login mat-button class="login" (click)="enteryFormdisplayed()">{{ userType === 'guest' ? 'Вход' : 'Выход' }}</button>
         </div>
-        <div class="search">
+        <!-- ДОДЕЛАТЬ
+          <div class="search">
           <input type="text" value="" />
-        </div>
+        </div>-->
+
       </div>
     </mat-toolbar>
     <!--toolbar end -->
   </header>
-  <div class="content" style="background-image: url({{img}}); background-repeat: no-repeat; background-size: 100%;">
+
+  <div class="content" style="background-image: url({{img}});  background-size: 100%;">
     <router-outlet></router-outlet>
 
     <!--авторизация start -->
-    <div class="formwin" *ngIf="enter || registration">
-      <div *ngIf="enter" class="formblock" #entery>
-        <form [formGroup]="formEntery" (ngSubmit)="submitEntForm(formEntery)">
+    <ng-container *ngIf="enter">
+      <app-entry (entryClose)="this.enter = false;"
+                 (regOpen)="this.enter = false;this.registration = true;">
+      </app-entry>
+    </ng-container>
+    <!--авторизация end -->
+    <!--регистрация start-->
+    <ng-container *ngIf=" registration">
+      <app-registration (regClose)="this.registration = false;">
+      </app-registration>
+    </ng-container>
+    <!--регистрация end-->
+    
 
-          <div>
-            <mat-form-field class="inp" appearance="fill">
-              <mat-label>Имя пользователя</mat-label>
-              <input #userName matInput type="text" value="" formControlName="userName" />
-              <mat-error *ngIf="formEntery.get('userName')?.hasError('required')||
-                              formEntery.get('userName')?.hasError('minlength')">
-                {{errMessage(formEntery,'userName')}}
-              </mat-error>
-              <mat-error *ngIf="formEntery.get('userName')?.hasError('passNameNone')"></mat-error>
-            </mat-form-field>
-          </div>
-
-          <div>
-            <mat-form-field class="inp" appearance="fill">
-              <mat-label>Пароль</mat-label>
-              <input matInput type="password" value="" formControlName="password" />
-              <mat-error *ngIf="formEntery.get('password')?.hasError('required') ||
-                              formEntery.get('password')?.hasError('minlength')||
-                              formEntery.get('password')?.hasError('passNameNone') ">
-                {{errMessage(formEntery,'password')}}
-              </mat-error>
-            </mat-form-field>
-          </div>
-
-        </form>
-        <div class="btns">
-
-          <div class="btn">
-            <button mat-raised-button color="accent" (click)="formCancel(formEntery)">Отменa</button>
-          </div>
-          <div class="btn">
-            <button mat-raised-button type="submit" color="primary" (click)="submitEntForm(formEntery)">Вход</button>
-          </div>
-        </div>
-        <div class="pReg">
-          <p (click)=registrationFormView()>
-            Зарегистрироваться
-          </p>
-        </div>
-
-      </div>
-      <!--авторизация end -->
-      <!--регистрация start-->
-      <div *ngIf="registration" class="formblock" #registration>
-        <form [formGroup]="formRegistration" (ngSubmit)="submitRegForm(formRegistration)">
-
-          <mat-form-field class="inp" appearance="outline">
-            <mat-label>Имя пользователя</mat-label>
-            <input matInput formControlName="userName" placeholder="userName">
-            <mat-error *ngIf="formRegistration.get('userName')?.hasError('required') ||
-                            formRegistration.get('userName')?.hasError('minlength')||
-                            formRegistration.get('userName')?.hasError('nameErr')">
-              {{errMessage(formRegistration,'userName')}}
-            </mat-error>
-          </mat-form-field>
-
-          <mat-form-field class="inp" appearance="outline">
-            <mat-label>Эл.почта</mat-label>
-            <input matInput formControlName="email" placeholder="email@email.com">
-            <mat-error *ngIf=" formRegistration.get('email')?.hasError('required') ||
-                             formRegistration.get('email')?.hasError('email')">
-              {{errMessage(formRegistration,'email')}}
-            </mat-error>
-          </mat-form-field>
-
-          <div class="telInp" country>
-            <mat-form-field #selctCount class="country" appearance="outline">
-              <mat-label>Страна</mat-label>
-              <mat-select formControlName="country">
-                <mat-option *ngFor="let coun of countries" [value]="coun.abb">
-                  {{coun.abb}}
-                </mat-option>
-
-              </mat-select>
-            </mat-form-field>
-
-            <mat-form-field class="tel" appearance="outline">
-              <mat-label>Номер телефона</mat-label>
-              <input OnlyNambers formControlName="phone" type="tel" matInput placeholder="Telephon">
-              <mat-error *ngIf=" formRegistration.get('phone')?.hasError('maxlength') ||
-                             formRegistration.get('phone')?.hasError('notNumber')">
-                {{errMessage(formRegistration,'phone')}}
-              </mat-error>
-            </mat-form-field>
-          </div>
-
-          <mat-form-field class="inp" appearance="outline">
-            <mat-label>Пароль</mat-label>
-            <input matInput [type]=" passwordHide ? 'password' : 'text'" formControlName="password" placeholder="Password">
-            <button type="button" mat-icon-button matSuffix (click)="passwordHide = !passwordHide">
-              <mat-icon>{{passwordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-            <mat-error *ngIf="formRegistration.get('password')?.hasError('required') ||
-                              formRegistration.get('password')?.hasError('minlength')||
-                              formRegistration.get('passwordCheck')?.hasError('passErr')">
-              {{errMessage(formRegistration,'password')}}
-            </mat-error>
-          </mat-form-field>
-
-          <mat-form-field class="inp" appearance="outline">
-            <mat-label>Проверка пароля</mat-label>
-            <input matInput [type]="  passwordCheckHide ? 'password' : 'text'" formControlName="passwordCheck" placeholder="Password">
-            <button type="button" mat-icon-button matSuffix (click)="  passwordCheckHide = !  passwordCheckHide">
-              <mat-icon>{{  passwordCheckHide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-            <mat-error *ngIf="formRegistration.get('passwordCheck')?.hasError('required') ||
-                              formRegistration.get('passwordCheck')?.hasError('minlength')||
-                              formRegistration.get('passwordCheck')?.hasError('passErr')">
-
-              {{errMessage(formRegistration,'passwordCheck')}}
-            </mat-error>
-          </mat-form-field>
-        </form>
-        <div class="btns">
-
-          <div class="btn">
-            <button mat-raised-button color="accent" (click)="formCancel(formRegistration)">Отменa</button>
-          </div>
-          <div class="btn">
-            <button mat-raised-button type="submit" color="primary" (click)="submitRegForm(formRegistration)">Завершить регистарцию.</button>
-          </div>
-        </div>
-
-
-      </div>
-      <!--регистрация end-->
+    <div *ngIf="preloaderToggle" class="preloader">
+      <app-preloader></app-preloader>
     </div>
 
-
-
-
   </div>
-
+  <footer>
+    <div class="footerWrap">
+      <div class="footerSection">
+        <h3>Section name</h3>
+        <p>Tincidunt integer eu augue augue.</p>
+        <p>Tincidunt integer eu augue augue.</p>
+        <p>Tincidunt integer eu augue augue.</p>
+        <p>Tincidunt integer eu augue augue.</p>
+        <p>Tincidunt integer eu augue augue.</p>
+      </div>
+      <mat-divider [vertical]="true"></mat-divider>
+      <div class="footerSection">
+        <h3>Section name</h3>
+        <p>Tincidunt integer eu augue augue.</p>
+        <p>Tincidunt integer eu augue augue.</p>
+        <p>Tincidunt integer eu augue augue.</p>
+        <p>Tincidunt integer eu augue augue.</p>
+      </div>
+      <mat-divider [vertical]="true"></mat-divider>
+      <div class="footerSection">
+        <h3>Section name</h3>
+        <p>Tincidunt integer eu augue augue.</p>
+        <p>Tincidunt integer eu augue augue.</p>
+        <p>Tincidunt integer eu augue augue.</p>
+        <p>Tincidunt integer eu augue augue.</p>
+        <p>Tincidunt integer eu augue augue.</p>
+        <p>Tincidunt integer eu augue augue.</p>
+      </div>
+    </div>
+  </footer>
 </div>
 

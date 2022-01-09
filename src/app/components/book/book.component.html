@@ -1,42 +1,58 @@
 <div class="container">
   <div class="content">
-    <div class="img">
-      <img src={{imgPath}}{{book.img}} alt="" />
-    </div>
-    <div class="info">
-      <h2>О книге:</h2>
-      <p>
-        <span class="bold">Aвтор:</span>
-        <span *ngIf="!autor.patronymic" class="autor" onmouseover="style='color:#670890;'" onmouseout="style='color:ffffff;'" (click)="goToAutor()"> {{autor.surname}} {{autor.name}}</span>
-        <span *ngIf="autor.patronymic" class="autor" onmouseover="style='color:#670890;'" onmouseout="style='color:ffffff;'" (click)="goToAutor()"> {{autor.surname}} {{autor.name}} {{autor.patronymic}}</span>
-      </p>
-      <p><span class="bold">Название:</span> {{book.title}}</p>
-      <p><span class="bold">Жанр:</span> {{book.style}}</p>
-      <p><span class="bold">Дата выхода:</span> {{date}}</p>
-      <p><span class="bold">Просмотров:</span> {{book.views}}</p>
-      <p><span class="bold">Понравилось:</span> {{book.liked.length}}</p>
-      <div class="btns">
-        <button mat-raised-button color="primary">Читать</button>
-        <button mat-raised-button color="primary">Скачать</button>
+    <ng-container *ngIf="load">
+      <div class="img">
+        <img src={{imgPath}}{{book.img}} alt="" />
       </div>
-    </div>
-    <div class="autorBooks item">
-      <h2>Другие книги автора:</h2>
-      <div class="cards">
+      <div class="info">
+        <h2>О книге:</h2>
+        <p>
 
-        <ng-container *ngFor="let book of autorBooks">
-          <app-card [book]="book" [userType]="userType"></app-card>
-        </ng-container>
+          <span class="bold">Aвтор:</span>
+          <a  [routerLink] = "['/autor',autor.id]"
+             matTooltip="Перейти к автору"
+             [matTooltipPosition]="'right'">
+            <span *ngIf="!autor.patronymic && load" class="autor" onmouseover="style='color:#670890;'" onmouseout="style='color:ffffff;'" > {{autor.surname}} {{autor.name}}</span>
+            <span *ngIf="autor.patronymic && load" class="autor" onmouseover="style='color:#670890;'" onmouseout="style='color:ffffff;'" > {{autor.surname}} {{autor.name}} {{autor.patronymic}}</span>
+          </a>
+        </p>
+        <p><span class="bold">Название:</span><span> {{book.title}}</span></p>
+        <p><span class="bold">Жанр:</span><span> {{book.style}}</span></p>
+        <p><span class="bold">Страниц:</span><span> {{book. pageCount}}</span></p>
+        <p><span class="bold">Дата выхода:</span><span> {{date}}</span></p>
+        <p><span class="bold">Просмотров:</span> <span>{{book.views}}</span></p>
+        <p><span class="bold">Понравилось:</span> <span>{{book.liked.length}}</span></p>
+        <div class="btns">
+          <button mat-raised-button color="primary" (click)="goToReader()">Читать</button>
+          <button #btnDownload mat-raised-button color="primary" (click)="downloadBook()">
+           
+         Скачать
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="styleBooks item">
 
-      <h2>Другие книги в жанре {{book.style[0].toLowerCase() + book.style.slice(1)}}:</h2>
-      <div class="cards">
-        <ng-container *ngFor="let book of styleBooks">
-          <app-card [book]="book" [userType]="userType"></app-card>
-        </ng-container>
+      <div class="autorBooks item">
+
+        <h2>Другие книги автора:</h2>
+        <div class="cards">
+
+
+          <ng-container *ngFor="let book of autorBooks">
+            <app-card [book]="book" [userType]="userType"></app-card>
+          </ng-container>
+
+        </div>
       </div>
-    </div>
+      <div class="styleBooks item">
+
+        <h2>Другие книги в жанре <span>{{book.style[0].toLowerCase() + book.style.slice(1)}}:</span></h2>
+        <div class="cards">
+          <ng-container *ngFor="let book of styleBooks">
+            <app-card [book]="book" [userType]="userType"></app-card>
+          </ng-container>
+
+        </div>
+      </div>
+    </ng-container>
   </div>
 </div>

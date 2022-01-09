@@ -4,12 +4,14 @@ export * from "./shared/services/autor.service"
 export * from "./shared/services/user.service"
 export * from "./shared/services/api-request.service"
 export * from "./shared/services/book.service"
+export * from "./shared/services/auxiliary.service"
 
 
 //интерфейсы
 export * from "./shared/interfaces/autor"
 export * from "./shared/interfaces/book"
 export * from "./shared/interfaces/user"
+export * from "./shared/interfaces/modalWinObj"
 
 //классы
 export * from "./classes/Autor"
@@ -29,6 +31,13 @@ export * from "./shared/enum/ country"
 export * from "./components/main/main.component"
 export * from "./components/book/book.component"
 export * from "./components/autor/autor.component"
+export * from "./components/pdf-reader/pdf-reader.component"
+export * from "./components/editBook/editBook.component"
+export * from "./components/card/card.component"
+export * from "./components/forms/entry/entry.component"
+export * from "./components/forms/registration/registration.component"
+export * from "./shared/auxiliary/preloader/preloader.component"
+export * from "./shared/auxiliary/modal-win/modal-win.component"
 
 
 //валидаторы
@@ -37,6 +46,7 @@ export * from "./shared/form/validators/passwordCheck"
 export * from "./shared/form/validators/numberValidator"
 export * from "./shared/form/errMessage/message"
 export * from "./shared/form/countryInfo/countries"
+export * from "./shared/form/validators/pageCountCheck"
 
 //директивы
 

@@ -1,19 +1,20 @@
-*{margin:0;
-  padding:0;
-  box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 
 .container {
-  padding-top: 50px;
+ 
 
   .content {
-    width: 1300px;
+    width: 100%;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(6, [col] 1fr);
     grid-template-rows: repeat(3, [row] auto);
-    gap: 20px;
+    gap: 10px;
     background-color: #bfe0e6f5;
     opacity: 0.9;
 
@@ -36,6 +37,10 @@
       }
     }
 
+    .btnsMob {
+      display: none;
+    }
+
     .biography {
       grid-column: span 6;
       margin: 10px;
@@ -51,18 +56,109 @@
 
       .cards {
         display: flex;
+        flex-wrap: wrap;
       }
     }
   }
 }
+
 h2 {
   margin-bottom: 10px;
 }
-button {
+
+button,.button {
   padding: 2px 15px;
   margin-top: 15px;
   margin-right: 15px;
   letter-spacing: 1px;
-  transition: 1s;
+ 
 }
 
+@media screen and (max-width: 750px) {
+  .container {
+
+    .content {
+
+      img {
+        width: 150px;
+        height: 225px;
+        margin: 10px;
+      }
+
+      .info {
+        font-size: 14px;
+        p {
+          margin-top: 7px;
+        }
+      }
+
+      .biography {
+        font-size: 14px;
+      
+      }
+    }
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+  button, .button {
+    padding: 0px 5px;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+  
+  }
+  }
+
+@media screen and (max-width: 450px) {
+  .container {
+
+    .content {
+
+      img {
+        width: 90px;
+        height: 135px;
+        margin: 5px;
+      }
+
+      .info {
+        font-size: 10px;
+      }
+
+        .biography {
+          font-size: 10px;
+        }
+      }
+    }
+
+    h2 {
+      font-size: 15px;
+    }
+
+    button, .button {
+      font-size: 10px;
+    }
+  }
+
+@media screen and (max-width: 250px) {
+  .container {
+
+    .content {
+      .info {
+        .btns {
+          display: none
+        }
+      }
+
+      .btnsMob {
+        width: 100%;
+        padding: 0 10px;
+        display: flex;
+        justify-content: end;
+        grid-column: span 6;
+      }
+    }
+  }
+
+
+}

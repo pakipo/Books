@@ -25,6 +25,10 @@ export class ApiRequestService {
      return this.http.post(apiEndPoints.autor, aut)
   }
 
+  updateAutor(autor: Autor) {
+    return this.http.put(apiEndPoints.autor, autor)
+  }
+
   getUsers() {
     return this.http.get(apiEndPoints.user)
   }
@@ -54,11 +58,11 @@ export class ApiRequestService {
     return this.http.post(apiEndPoints.book, book)
   }
   updateBook(book: Book) {
-    return this.http.put(apiEndPoints.book, book).subscribe(res => {
-      let book = res;
-      return book;
+    return this.http.put(apiEndPoints.book, book)
     }
 
-    )
+    
+  deleteBook(id: number) {
+    return this.http.delete(apiEndPoints.book + `/${id}`)
   }
 }

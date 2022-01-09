@@ -8,10 +8,11 @@ export class Book implements IBook {
   img: string | null;
   shortDescription: string;
   autorId: number;
-  releaseDate: Date;
+  releaseDate: Date | string;
   views!: number;
   liked!: string[];
-
+  pdfLink: string = '';
+ 
   constructor(
     title: string,
     pageCount: number,
@@ -19,10 +20,12 @@ export class Book implements IBook {
     shortDescription: string,
     img: string,
     autorId: number,
-    releaseDate: Date,
+    releaseDate: Date | string,
     id: number,
     views: number | null,
-    liked: Array<string> | null
+    liked: Array<string> | null,
+    pdfLink: string
+   
       ) {
     this.title = title;
     this.pageCount = pageCount;
@@ -34,5 +37,7 @@ export class Book implements IBook {
     this.id = id
     views ? this.views = views : this.views = 0;
     liked ? this.liked = liked : this.liked = [];
+    pdfLink ? this.pdfLink = pdfLink : ''
+   
   }
 }

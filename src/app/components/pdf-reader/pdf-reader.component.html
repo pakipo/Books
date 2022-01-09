@@ -1,0 +1,95 @@
+<div class="pdfReader">
+  <div class="PDFtoolBar">
+    <div class="scale toolFlex">
+      <button appHoverBtn
+              [color]="'#7df69d'"
+              (click)="zoomIn()"
+              mat-icon-button>
+        <mat-icon>zoom_in</mat-icon>
+      </button>
+      <p>Мaсштаб</p>
+      <button appHoverBtn
+              [color]="'#7df69d'"
+              mat-icon-button>
+        <mat-icon (click)="zoomOut()">zoom_out</mat-icon>
+      </button>
+    </div>
+    <div class="rotation toolFlex">
+      <button appHoverBtn
+              [color]="'#7df69d'"
+              mat-icon-button
+              (click)="rotateLeft()">
+        <mat-icon>rotate_left</mat-icon>
+      </button>
+
+
+      <button appHoverBtn
+              [color]="'#7df69d'"
+              mat-icon-button
+              (click)="rotateRight()">
+        <mat-icon>rotate_right</mat-icon>
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="pdfDoc">
+    <pdf-viewer
+              [src]="pdfSrc"
+              [render-text]="true"
+              [page]="page"
+              [show-all]="false"
+              [original-size]="false"
+              [autoresize]="true"
+              [zoom-scale]="'page-fit'"
+              [rotation]="rotation"
+              [zoom]="zoom"
+              style="display: block;"
+              (after-load-complete)="afterLoad($event)">
+  </pdf-viewer>
+  </div>
+  <div class="foot">
+    <div class="btnsPrev">
+      <button appHoverBtn
+              [color]="'#7df69d'"
+              mat-icon-button
+              (click)="goToFirstPage()">
+        <mat-icon>first_page</mat-icon>
+      </button>
+      <button appHoverBtn
+              [color]="'#7df69d'"
+              mat-icon-button
+              (click)="goToPrevPage()">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+    </div>
+    <div>
+      <input type="number"
+             (input)="input($event)"
+             (change)="inpPage($event)"
+             [value]="page"
+             [style]="this.inputWidth"><span>  / {{pdfNumPages}}</span>
+    </div>
+    <div class="btnsNext">
+      <button appHoverBtn
+              [color]="'#7df69d'"
+              mat-icon-button
+              (click)="goToNextPage()">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+      <button appHoverBtn
+              [color]="'#7df69d'"
+              mat-icon-button
+              (click)="goToLastPage()">
+        <mat-icon>last_page</mat-icon>
+      </button>
+    </div>
+  </div>
+ 
+
+</div>
+
+
+
+

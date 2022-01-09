@@ -3,14 +3,12 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\classes",
     "\\src\\app\\components",
-    "\\src\\app\\components\\card",
-    "\\src\\app\\components\\main",
+    "\\src\\app\\components\\book",
+    "\\src\\app\\components\\editBook",
     "\\src\\app\\shared",
-    "\\src\\app\\shared\\services",
-    "\\src\\environments"
+    "\\src\\app\\shared\\services"
   ],
-  "SelectedNode": "\\src\\app\\components\\book\\book.component.ts",
+  "SelectedNode": "\\src\\app\\components\\editBook\\editBook.component.ts",
   "PreviewInSolutionExplorer": false
 }

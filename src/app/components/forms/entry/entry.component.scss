@@ -1,0 +1,131 @@
+
+.formwin {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: #9fb3be;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  padding-top: 50px;
+
+  .formblock {
+    width: 500px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    margin: auto;
+
+    .inp {
+      width: 100%;
+    }
+  }
+
+  .btns {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10%;
+  }
+
+  .pReg {
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: underline;
+  }
+}
+
+:hover.pReg {
+  cursor: pointer;
+  color: #673ab7;
+}
+
+@media screen and (max-width: 600px) {
+
+  .formwin {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #9fb3be;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+
+    .formblock {
+      width: 80%;
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-items: center;
+      margin: auto;
+
+      .inp {
+        width: 100%;
+      }
+    }
+
+    .btns {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10%;
+    }
+
+    .pReg {
+      text-align: center;
+      margin-top: 20px;
+      text-decoration: underline;
+    }
+  }
+}
+
+@media screen and (max-width: 340px) {
+
+  .formwin {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #9fb3be;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+
+    .formblock {
+      width: 95%;
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-items: center;
+      margin: auto;
+
+      .inp {
+        width: 100%;
+      }
+    }
+
+    .btns {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: space-around;
+      margin-top: 10%;
+
+      button {
+        margin-top: 15px;
+        font-size: 13px;
+      }
+    }
+
+    .pReg {
+      text-align: center;
+      margin-top: 15px;
+      text-decoration: underline;
+      font-size: 13px;
+    }
+  }
+
+  form {
+    font-size: 13px;
+  }
+}

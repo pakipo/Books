@@ -1,0 +1,300 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  .content1 {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #bfe0e6f5;
+    opacity: 0.9;
+    padding: 10px 100px;
+
+
+    .mat-stepper-horizontal {
+      background-color: #bbe7ef;
+      min-height: 100vh;
+      width: 100%;
+
+
+
+      .inStepper {
+        width: 50%;
+        height: 30%;
+        margin: 50px auto;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+
+        .done {
+          display: flex;
+          justify-content: center;
+
+          .img {
+            margin: 10px;
+
+            img {
+              width: 200px;
+              height: 300px;
+              margin: 10px;
+            }
+          }
+
+          .info {
+            padding: 1em;
+
+            p {
+              margin-top: 10px;
+            }
+
+            .bold {
+              font-weight: 550;
+            }
+          }
+        }
+
+        .inpt {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+
+          .mat-form-field {
+            width: 90%;
+          }
+
+          .inpBtnCntr {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+
+
+
+            .mat-icon-button {
+              margin: -2px;
+            }
+          }
+        }
+
+        .btnControl {
+          position: absolute;
+          bottom: -5px;
+          right: 0;
+          display: flex;
+          flex-direction: column;
+
+          .mat-icon-button {
+            width: 20px;
+            height: 20px;
+            opacity: 0.8;
+          }
+        }
+
+        .btn {
+          display: flex;
+          justify-content: space-between;
+          margin: 15px 10% 15px 0;
+
+          button {
+            padding: 0 5px;
+            letter-spacing: 1px;
+          }
+
+          .doneBtn {
+              button{
+              margin-left:20px;
+          }
+
+          }
+        }
+      }
+    }
+  }
+}
+
+
+input[matinput]::-webkit-outer-spin-button,
+input[matinput]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[matinput][type=number] {
+  -moz-appearance: textfield;
+}
+
+
+
+@media screen and (max-width:980px){
+  .container {
+
+    .content1 {
+      padding: 0;
+
+      .mat-stepper-horizontal {
+      .inStepper {
+          width: 70%;
+        }
+      }
+    }
+  }
+ 
+}
+
+@media screen and (max-width:750px) {
+  .container {
+    font-size: 12px;
+
+    .content1 {
+      .mat-stepper-horizontal {
+        .lab {
+          font-size: 12px;
+         
+        }
+
+        .inStepper {
+          .done {
+
+            .img {
+              margin: 10px;
+
+              img {
+                width: 150px;
+                height: 225px;
+                margin: 5px;
+              }
+            }
+
+            .info {
+              padding: 5px;
+
+              p {
+                margin-top: 5px;
+              }
+            }
+          }
+
+          .btn {
+            button {
+              letter-spacing: 0.5px;
+              font-size: 12px;
+            }
+
+            .doneBtn {
+            
+              display: flex;
+              justify-content: space-between
+            }
+          }
+        }
+      }
+    }
+  }
+  h2 {
+    font-size: 17px;
+  }
+ 
+}
+
+@media screen and (max-width:600px) {
+  .container {
+    .content1 {
+
+      .mat-stepper-horizontal {
+
+        .inStepper {
+          width: 80%;
+
+          .inpt {
+
+            .inpBtnCntr {
+              flex-direction: row;
+
+              .mat-icon-button {
+
+                .mat-icon {
+                  font-size: 20px;
+                  margin:0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width:450px) {
+  .container {
+    .content1 {
+
+      .mat-stepper-horizontal {
+
+        .inStepper {
+          width: 100%;
+
+          .inpt {
+             
+            .inpBtnCntr {
+            display:none;
+            
+            }
+          }
+        }
+      }
+    }
+  }
+ 
+}
+
+@media screen and (max-width:320px) {
+  .container {
+    font-size: 10px;
+
+    .content1 {
+      .mat-stepper-horizontal {
+        .inStepper {
+
+          .done {
+            .img {
+              margin: 10px;
+
+              img {
+                width: 90px;
+                height: 135px;
+              }
+            }
+
+            .info {
+            }
+          }
+
+          .btn {
+            button {
+              font-size: 10px;
+              margin: 5px;
+            }
+
+            .doneBtn {
+              margin: 5px;
+
+              button {
+                margin: 0 0 0 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  h2 {
+    font-size: 10px;
+  }
+}
+
+

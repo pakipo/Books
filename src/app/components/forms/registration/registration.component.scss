@@ -1,0 +1,230 @@
+.formwin {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: #9fb3be;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  padding-top:50px;
+
+  .formblock {
+    width: 750px;
+    height: 90vh;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+
+    .inp {
+      width: 100%;
+
+      input {
+      }
+    }
+
+    .telInp {
+      display: flex;
+      justify-content: space-between;
+
+      .country {
+        width: 30%;
+      }
+
+      .tel {
+        width: 65%;
+      }
+    }
+
+    .btns {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+     
+      button{
+          font-size:13px;
+          letter-spacing:0.5px;
+      }
+    }
+  }
+
+}
+form {
+ font-size: 15px;
+}
+
+
+@media screen and (max-width: 980px) {
+  .formwin {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #9fb3be;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+
+    .formblock {
+      width: 65%;
+      height: 90vh;
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+
+      .inp {
+        width: 100%;
+
+        input {
+        }
+      }
+
+      .telInp {
+        display: flex;
+        justify-content: space-between;
+
+        .country {
+          width: 30%;
+        }
+
+        .tel {
+          width: 65%;
+        }
+      }
+
+      .btns {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+
+        button {
+          font-size: 13px;
+          letter-spacing: 0.5px;
+        }
+      }
+    }
+  }
+
+  form {
+    font-size: 13px;
+  }
+  }
+
+@media screen and (max-width: 640px) {
+  .formwin {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #9fb3be;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+
+    .formblock {
+      width: 85%;
+      height: 90vh;
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+
+      .inp {
+        width: 100%;
+
+        input {
+        }
+      }
+
+      .telInp {
+        display: flex;
+        justify-content: space-between;
+
+        .country {
+          width: 30%;
+        }
+
+        .tel {
+          width: 65%;
+        }
+      }
+
+      .btns {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+
+        button {
+          font-size: 13px;
+          letter-spacing: 0.5px;
+        }
+      }
+    }
+  }
+
+  form {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .formwin {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #9fb3be;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+
+
+    .formblock {
+      width: 95%;
+      height: 90vh;
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+
+      .inp {
+        width: 100%;
+
+        input {
+        }
+      }
+
+      .telInp {
+        display: flex;
+        justify-content: space-between;
+
+        .country {
+          width: 30%;
+        }
+
+        .tel {
+          width: 65%;
+        }
+      }
+
+      .btns {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15px;
+
+        button {
+          font-size: 11px;
+          letter-spacing: 0.5px;
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+
+  form {
+    font-size: 11px;
+  }
+}

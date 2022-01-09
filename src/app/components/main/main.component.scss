@@ -7,10 +7,27 @@
 .viewBooks {
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(170px,1fr));
-  margin: 0 auto;
-  width: 1300px; 
-}
- 
+  margin:0 auto;
 
+}
+
+@media screen and (max-width: 750px) {
+  .viewBooks {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(130px,1fr));
+    margin: 0 auto;
+   
+   
+  }
+}
+
+
+@media screen and (max-width: 320px) {
+  .viewBooks {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(90px,1fr));
+    margin: 0 auto;
+  }
+}
 
 

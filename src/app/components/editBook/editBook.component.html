@@ -1,0 +1,286 @@
+
+<div class="container">
+  <div class="content1">
+    <form [formGroup]="editBookForm" *ngIf="!preLoad">
+
+      <mat-horizontal-stepper linear formArrayName="formArr" labelPosition="bottom" #stepper>
+        <!--Step 1, информация о книге start-->
+        <mat-step formGroupName="0" [stepControl]="formArr?.get([0])">
+          <ng-template matStepLabel><p class="lab">Информация о книге</p></ng-template>
+          <div class="inStepper">
+
+            <div class="inpt">
+              <mat-form-field appearance="outline">
+                <mat-label >Название книги</mat-label>
+                <input matInput formControlName="title" #inpTitle>
+                <mat-error *ngIf="formArr?.get([0]).get('title')?.hasError('required')">
+                  {{errMessage(formArr?.get([0]),'title')}}
+                </mat-error>
+              </mat-form-field>
+
+              <div class="inpBtnCntr">
+                <button color="warn"
+                        mat-icon-button
+                        (click)="inputClear(formArr?.get([0]).get('title'),inpTitle)"
+                        matTooltip="Очистить поле"
+                        [matTooltipPosition]="'right'">
+                  <mat-icon>clear</mat-icon>
+                </button>
+                <button color="primary"
+                        [disabled]="!formArr?.get([0]).get('title').dirty"
+                        mat-icon-button
+                        (click)=" inputRefresh(formArr?.get([0]).get('title'),'title')"
+                        matTooltip="Обновить поле"
+                        [matTooltipPosition]="'right'">
+                  <mat-icon>refresh</mat-icon>
+                </button>
+              </div>
+            </div>
+
+            <div class="inpt">
+              <mat-form-field appearance="outline">
+                <mat-label>Количесьво страниц</mat-label>
+                <input OnlyNambers #inpPageCount type="number" min="1" matInput formControlName="pageCount">
+                <div class="btnControl" matSuffix>
+                  <button color="primary" mat-icon-button (click)="pageCountControl(formArr?.get([0]),'up')">
+                    <mat-icon><span class="material-icons">keyboard_arrow_up</span></mat-icon>
+                  </button>
+                  <button color="primary" mat-icon-button (click)="pageCountControl(formArr?.get([0]),'down')">
+                    <mat-icon><span class="material-icons">keyboard_arrow_down</span></mat-icon>
+                  </button>
+                </div>
+                <mat-error *ngIf="formArr?.get([0]).get('pageCount')?.hasError('required')||
+                            formArr?.get([0]).get('pageCount')?.hasError('pageCountNum')">
+                  {{errMessage(formArr?.get([0]),'pageCount')}}
+                </mat-error>
+              </mat-form-field>
+
+              <div class="inpBtnCntr">
+                <button color="warn"
+                        mat-icon-button
+                        (click)="inputClear(formArr?.get([0]).get('pageCount'),inpPageCount)"
+                        matTooltip="Очистить поле"
+                        [matTooltipPosition]="'right'">
+                  <mat-icon>clear</mat-icon>
+                </button>
+
+                <button color="primary"
+                        mat-icon-button
+                        [disabled]="!formArr?.get([0]).get('pageCount').dirty"
+                        (click)=" inputRefresh(formArr?.get([0]).get('pageCount'),'pageCount')"
+                        matTooltip="Обновить поле"
+                        [matTooltipPosition]="'right'">
+                  <mat-icon>refresh</mat-icon>
+                </button>
+              </div>
+            </div>
+
+            <div class="inpt">
+              <mat-form-field appearance="outline">
+                <mat-label>Жанр</mat-label>
+                <mat-select formControlName="style" [(ngModel)]="curBookStyle">
+                  <mat-option *ngFor="let style of styleBookArr" [value]="style">
+                    {{style}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div class="inpBtnCntr"> 
+                <button disabled mat-icon-button> </button>
+                <button disabled mat-icon-button> </button>      
+              </div>
+            </div>
+
+            <div class="inpt">
+              <mat-form-field appearance="outline">
+                <mat-label>Дата выхода</mat-label>
+                <input matInput
+                       #inpDate
+                       [matDatepicker]="dp"
+                       formControlName="releaseDate"
+                     
+                       >
+                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                <mat-datepicker #dp></mat-datepicker>
+              </mat-form-field>
+
+              <div class="inpBtnCntr">
+                <button color="warn"
+                        mat-icon-button
+                        (click)=" inputDateClear(formArr?.get([0]).get('releaseDate'))"
+                        matTooltip="Очистить поле"
+                        [matTooltipPosition]="'right'">
+                  <mat-icon>clear</mat-icon>
+                </button>
+                <button color="primary"
+                        [disabled]="!formArr?.get([0]).get('releaseDate').dirty"
+                        mat-icon-button
+                        (click)=" inputRefresh(formArr?.get([0]).get('releaseDate'),'releaseDate')"
+                        matTooltip="Обновить поле"
+                        [matTooltipPosition]="'right'">
+                  <mat-icon>refresh</mat-icon>
+                </button>
+              </div>
+            </div>
+
+            <div class="inpt">
+              <mat-form-field appearance="outline">
+                <mat-label>Краткое описание</mat-label>
+                <textarea matInput #inpDesc formControlName="shortDescription"></textarea>
+                <mat-error *ngIf="formArr?.get([0]).get('shortDescription')?.hasError('required')">
+                  {{errMessage(formArr?.get([0]),'shortDescription')}}
+                </mat-error>
+              </mat-form-field>
+
+              <div class="inpBtnCntr">
+                <button color="warn"
+                        mat-icon-button
+                        (click)="inputClear(formArr?.get([0]).get('shortDescription'),inpDesc)"
+                        matTooltip="Очистить поле"
+                        [matTooltipPosition]="'right'">
+                  <mat-icon>clear</mat-icon>
+                </button>
+                <button color="primary"
+                        [disabled]="!formArr?.get([0]).get('shortDescription').dirty"
+                        mat-icon-button
+                        (click)=" inputRefresh(formArr?.get([0]).get('shortDescription'),'shortDescription')"
+                        matTooltip="Обновить поле"
+                        [matTooltipPosition]="'right'">
+                  <mat-icon>refresh</mat-icon>
+                </button>
+              </div>
+            </div>
+
+            <div class="btn">
+              <button color="warn" (click)="cancel()" mat-raised-button>Отмена</button>
+              <button color="primary" mat-raised-button matStepperNext>Далее</button>
+            </div>
+          </div>
+
+        </mat-step>
+        <!-- Step 1, информация о книге end-->
+        <!--Step 2,информация об авторе start-->
+        <mat-step formGroupName="1" [stepControl]="formArr?.get([1])">
+          <div class="inStepper">
+            <ng-template matStepLabel><span class="lab">Информация об авторе</span></ng-template>
+
+            <div class="inpt">
+              <mat-form-field class="inp" appearance="outline">
+                <mat-label>Фамилия автора</mat-label>
+                <input #inpSurname matInput formControlName="surname">
+              </mat-form-field>
+
+              <div class="inpBtnCntr">
+                <button color="warn"
+                        mat-icon-button
+                        (click)="inputClear(formArr?.get([1]).get('surname'),inpSurname)"
+                        matTooltip="Очистить поле"
+                        [matTooltipPosition]="'right'">
+                  <mat-icon>clear</mat-icon>
+                </button>
+                <button color="primary"
+                        [disabled]="!formArr?.get([1]).get('surname').dirty"
+                        mat-icon-button
+                        (click)=" inputRefresh(formArr?.get([1]).get('surname'),'surname')"
+                        matTooltip="Обновить поле"
+                        [matTooltipPosition]="'right'">
+                  <mat-icon>refresh</mat-icon>
+                </button>
+              </div>
+            </div>
+
+            <div class="inpt">
+              <mat-form-field required class="inp" appearance="outline">
+                <mat-label>Имя</mat-label>
+                <input #inpName matInput formControlName="name">
+                <mat-error *ngIf="formArr?.get([1]).get('name')?.hasError('required')">
+                  {{errMessage(formArr?.get([1]),'name')}}
+                </mat-error>
+              </mat-form-field>
+
+              <div class="inpBtnCntr">
+                <button color="warn"
+                        mat-icon-button
+                        (click)="inputClear(formArr?.get([1]).get('name'),inpName)"
+                        matTooltip="Очистить поле"
+                        [matTooltipPosition]="'right'">
+                  <mat-icon>clear</mat-icon>
+                </button>
+                <button color="primary"
+                        [disabled]="!formArr?.get([1]).get('name').dirty"
+                        mat-icon-button
+                        (click)="inputRefresh(formArr?.get([1]).get('name'),'name')"
+                        matTooltip="Обновить поле"
+                        [matTooltipPosition]="'right'">
+                  <mat-icon>refresh</mat-icon>
+                </button>
+              </div>
+            </div>
+
+            <div class="inpt">
+              <mat-form-field class="inp" appearance="outline">
+                <mat-label>Отчество</mat-label>
+                <input #inpPatr matInput formControlName="patronymic">
+              </mat-form-field>
+
+              <div class="inpBtnCntr">
+                <button color="warn"
+                        mat-icon-button
+                        (click)="inputClear(formArr?.get([1]).get('patronymic'),inpPatr)"
+                        matTooltip="Очистить поле"
+                        [matTooltipPosition]="'right'">
+                  <mat-icon>clear</mat-icon>
+                </button>
+                <button color="primary"
+                        [disabled]="!formArr?.get([1]).get('patronymic').dirty"
+                        mat-icon-button
+                        (click)=" inputRefresh(formArr?.get([1]).get('patronymic'),'patronymic')"
+                        matTooltip="Обновить поле"
+                        [matTooltipPosition]="'right'">
+                  <mat-icon>refresh</mat-icon>
+                </button>
+              </div>
+            </div>
+
+            <div class="btn">
+              <button color="primary" mat-raised-button matStepperPrevious>Назад</button>
+              <button color="warn" mat-raised-button  (click)="cancel()">Отмена</button>
+              <button color="primary" mat-raised-button matStepperNext>Далее</button>
+            </div>
+          </div>
+        </mat-step>
+        <!--Step 2, информация об авторе end-->
+
+        <!--Step 3,Завершить start-->
+        <mat-step>
+          <div class="inStepper">
+            <ng-template matStepLabel><span class="lab">Завершить</span></ng-template>
+            <div class="done">
+              <div class="img">
+                <img src={{imgPath}}{{book.img}} alt="" />
+              </div>
+              <div class="info">
+                <h2>О книге:</h2>
+                <p><span class="bold">Aвтор:</span> {{autorInfo()}}</p>
+                <p><span class="bold">Название:</span> {{formArr?.get([0]).get('title').value}}</p>
+                <p><span class="bold">Жанр:</span> {{formArr?.get([0]).get('style').value}}</p>
+                <p><span class="bold">Страниц:</span> {{formArr?.get([0]).get('pageCount').value}}</p>
+                <p><span class="bold">Дата выхода:</span>{{releaseDate()}} </p>
+                <p><span class="bold">Просмотров:</span> {{book.views}}</p>
+                <p><span class="bold">Понравилось:</span> {{book.liked.length}}</p>
+              </div>
+            </div>
+            <div class="btn">
+              <button color="primary" mat-raised-button matStepperPrevious>Назад</button>
+              <div class="doneBtn">
+                <button color="warn" mat-raised-button (click)="cancel()">Отмена</button>
+                <button  color="primary" (click)="done()" mat-raised-button>Завершить</button>
+              </div>
+            </div>
+          </div>
+        </mat-step>
+        <!--Step 3,Завершить end-->
+
+      </mat-horizontal-stepper>
+    </form>
+  </div>
+</div>

@@ -8,8 +8,9 @@ export interface IBook {
   style: styleBook,
   img: string | null,
   shortDescription: string,
-  autorId: number,
-  releaseDate: Date,
+  autorId: number ,
+  releaseDate: Date | string,
   views: number,
-  liked: string[]
+  liked: string[],
+ 
 }

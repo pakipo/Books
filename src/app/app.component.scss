@@ -1,106 +1,146 @@
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
+  width: 100%;
 
   .toolBar {
     padding-left: 2%;
     display: flex;
     justify-content: space-between;
 
+    .menu {
+      display: none;
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    .btn {
+      display: flex;
+      justify-content: space-around;
+    }
+
     .tool {
       display: flex;
       justify-content: space-around;
 
       .search {
-          input{
-          border-radius:3px;
-          border:none;
-          }
+        input {
+          border-radius: 3px;
+          border: none;
+        }
       }
     }
   }
 
-
-  .title {
-    display: flex;
-    align-items: center;
-    height: 100%;
-  }
-.content{
-    position:relative;
-    min-height:100vh;
-}
-
-
-  .btn {
-    display: flex;
-    justify-content: space-around;
-
-    .login {
-    }
+  .content {
+    position: relative;
+    padding: 5px;
+    width: 100;
   }
 
-  .formwin {
-    position: absolute;
+
+
+  .preloader {
+    position: fixed;
+    opacity: 0.8;
+    top: 0;
+    left: 0;
+    background-color: #d2c5fa;
+    opacity: 1;
     width: 100%;
     height: 100vh;
-    background-color: #edede5;
-    opacity: 1;
-    top:0;
-    left:0;
+  }
 
-    .formblock {
-      position: absolute;
-      width: 30%;
-      height: 30%;
-      top: 10%;
-      left: 35%;
-      padding: 5px;
-      display: flex;
-      flex-direction: column;
-      justify-items: center;
-
-
-      .inp {
-        width: 100%;
-      }
-    }
-
-    .btns {
+  footer {
+    .footerWrap {
+      padding: 30px;
+      width: 100%;
+      background-color: #673AB7;
       display: flex;
       justify-content: space-around;
-      margin-top: 10%;
-    }
 
-    .pReg {
-      text-align: center;
-      margin-top: 20px;
-      text-decoration: underline;
-    }
+      .footerSection {
+        color: #e8e7e0;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+        padding-left: 5px;
 
-    .telInp {
-      width: 100%;
+        h3 {
+          padding-bottom: 5px;
+        }
 
-      .country {
-        width: 19%;
+        p {
+          padding: 2px;
+        }
       }
 
-      .tel {
-        width: 80%;
-        margin-left: 1%;
+      .mat-divider {
+        background-color: #e8e7e0;
       }
     }
   }
 }
+
+
+
+@media screen and (max-width: 769px) {
+
+  .container {
+    width: 100%;
+
+    .toolBar {
+      .menu {
+        display: block;
+      }
+
+      .title {
+        margin: auto;
+      }
+
+      .btn {
+      }
+
+      .tool {
+        display: none;
+
+        .search {
+          input {
+          }
+        }
+      }
+    }
+
+    footer {
+      .footerWrap {
+        .footerSection {
+          color: #e8e7e0;
+          font-size: 11px;
+          letter-spacing: 0.5px;
+          padding-left: 5px;
+        }
+
+        .mat-divider {
+          background-color: #e8e7e0;
+        }
+      }
+    }
+  }
+}
+
+
 :hover .pReg {
   cursor: pointer;
   color: #673ab7;
 }
 
-:hover .mainPage{
-    cursor:pointer;
+:hover .mainPage {
+  cursor: pointer;
 }

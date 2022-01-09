@@ -2,3 +2,24 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-dialog-container {
+  margin: 10px;
+  background-color: #cbe4eb;
+
+}
+
+
+
+
+@media screen and (max-width:600px) {
+  .mat-horizontal-stepper-header-container {
+      display:none !important;
+  }
+ 
+}
+@media screen and (max-width:450px) {
+  .mat-horizontal-content-container {
+    padding: 0 !important;
+  }
+}
