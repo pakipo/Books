@@ -12,7 +12,7 @@ import { IUser } from '../interfaces/user';
 })
 export class UserService {
   private user!: User | null;
-  userType: userType = userType.admin;//заменить на гость!!!!!!
+  userType: userType = userType.guest;
   userTypSubj = new Subject();
   constructor(private http: HttpClient,
     private api: ApiRequestService) { }
