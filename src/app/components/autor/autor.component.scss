@@ -6,7 +6,7 @@
 
 
 .container {
- 
+
 
   .content {
     width: 100%;
@@ -53,12 +53,13 @@
     .autorBooks {
       grid-column: span 6;
       margin: 10px;
-
-      .cards {
-        display: flex;
-        flex-wrap: wrap;
-      }
     }
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(170px,1fr));
+
   }
 }
 
@@ -97,6 +98,10 @@ button,.button {
       
       }
     }
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(130px,1fr));
   }
 
   h2 {
@@ -140,25 +145,12 @@ button,.button {
     }
   }
 
-@media screen and (max-width: 250px) {
+@media screen and (max-width: 425px) {
   .container {
-
-    .content {
-      .info {
-        .btns {
-          display: none
-        }
-      }
-
-      .btnsMob {
-        width: 100%;
-        padding: 0 10px;
-        display: flex;
-        justify-content: end;
-        grid-column: span 6;
-      }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(90px,1fr));
     }
   }
-
-
 }
+

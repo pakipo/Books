@@ -5,14 +5,14 @@
 
       <mat-horizontal-stepper linear formArrayName="formArr" labelPosition="bottom" #stepper>
         <!--Step 1, информация о книге start-->
-        <mat-step formGroupName="0" [stepControl]="formArr?.get([0])">
+        <mat-step formGroupName="0" [stepControl]="formArr?.get([0])" >
           <ng-template matStepLabel><p class="lab">Информация о книге</p></ng-template>
           <div class="inStepper">
 
             <div class="inpt">
               <mat-form-field appearance="outline">
                 <mat-label >Название книги</mat-label>
-                <input matInput formControlName="title" #inpTitle>
+                <input class="center" matInput formControlName="title" #inpTitle>
                 <mat-error *ngIf="formArr?.get([0]).get('title')?.hasError('required')">
                   {{errMessage(formArr?.get([0]),'title')}}
                 </mat-error>

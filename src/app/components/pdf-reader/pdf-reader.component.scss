@@ -35,6 +35,7 @@
   .pdfDoc {
     height: 80vh;
     width: 100%;
+    margin:0 auto;
 
     pdf-viewer {
       position: relative;
@@ -47,7 +48,7 @@
   .foot {
     display: flex;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: 10px;
     height: 10vh;
 
     div {
@@ -89,20 +90,38 @@
     color: #c0def8;
   }
 }
-
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 425px) {
   .pdfReader {
-    .PDFtoolBar {
-      font-size: 15px;
-      .toolFlex {
-        justify-content: center;
+    .pdfDoc {
+      height: 70vh;
+      width: 90%;
+
+      pdf-viewer {
+        position: relative;
+        margin: 1px auto;
+        overflow: auto;
+        height: 100%;
       }
-      .scale, .rotation {
-        margin: 0 10px;
-      }
-    }
-    .mat-icon {
-      font-size: 15px;
     }
   }
+  }
+  @media screen and (max-width: 350px) {
+    .pdfReader {
+
+      .PDFtoolBar {
+        font-size: 15px;
+
+        .toolFlex {
+          justify-content: center;
+        }
+
+        .scale, .rotation {
+          margin: 0 10px;
+        }
+      }
+
+      .mat-icon {
+        font-size: 15px;
+      }
+    }
   }

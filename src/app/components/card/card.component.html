@@ -4,8 +4,7 @@
        src={{img}}{{book.img}}
        alt="Photo of a Shiba Inu"
        (click)="goToBook(book.id)"
-       matTooltip="Перейти к книге"
-       [matTooltipPosition]="'right'" />
+      />
   <button *ngIf="userType==='admin'"
           mat-icon-button
           (click)="goToEditBook(book.id)"

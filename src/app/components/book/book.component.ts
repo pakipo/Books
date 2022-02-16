@@ -96,6 +96,7 @@ export class BookComponent implements OnInit{
 
   //скачать книгу
   downloadBook() {
+
     this.book.pdfLink ? this.pdfLink.click() : null;
   }
 

@@ -9,7 +9,7 @@ import {
   ModalWinComponent
 } from './index'
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuxiliaryService } from './shared/services/auxiliary.service';
 
 @Component({
@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
   constructor(
     private userservice: UserService,
     private rendere: Renderer2,
-   
+    private route: ActivatedRoute,
     private router: Router,
     private auxiliary: AuxiliaryService) { }
 
@@ -55,7 +55,9 @@ export class AppComponent implements OnInit {
       this.enter = true;
     } else {
       this.userservice.shiftUserType(userType.guest)
-    }
+      this.router.navigate(['main'])
+      }
+     
   }
 }
 

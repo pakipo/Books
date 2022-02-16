@@ -29,6 +29,7 @@
         flex-direction: column;
         justify-items: center;
 
+
         .done {
           display: flex;
           justify-content: center;
@@ -60,16 +61,18 @@
           width: 100%;
           display: flex;
           justify-content: space-between;
+          
 
           .mat-form-field {
             width: 90%;
+           margin:0 auto;
           }
 
           .inpBtnCntr {
             display: flex;
             flex-direction: column;
-            justify-content: start;
-
+            justify-content: flex-start;
+         
 
 
             .mat-icon-button {
@@ -95,7 +98,7 @@
         .btn {
           display: flex;
           justify-content: space-between;
-          margin: 15px 10% 15px 0;
+       
 
           button {
             padding: 0 5px;
@@ -238,11 +241,14 @@ input[matinput][type=number] {
           width: 100%;
 
           .inpt {
-             
+
             .inpBtnCntr {
-            display:none;
-            
+              display: none;
             }
+          }
+
+          .btn {
+           padding: 0 20px;
           }
         }
       }
@@ -269,8 +275,6 @@ input[matinput][type=number] {
               }
             }
 
-            .info {
-            }
           }
 
           .btn {

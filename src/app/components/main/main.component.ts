@@ -21,6 +21,7 @@ export class MainComponent implements OnInit {
     private auxiliary: AuxiliaryService) { }
 
   ngOnInit(): void {
+   
     this.auxiliary.preloaderCtrl(true);
     this.userservice.userTypSubj.subscribe(res => {
       this.userType = res as userType })
@@ -31,11 +32,7 @@ export class MainComponent implements OnInit {
     this.bookservis.liked(e, book);
   }
 
-  likedClass(book: Book) {
-    let id = this.userservice.getUser()?.favoriteBooks.find(item => item === book.id)
-    return id ? 'liked' : ''
-  }
-
+ 
   goToBook(id: string) {
     this.allBooks = [];
     this.router.navigate(['book',id])

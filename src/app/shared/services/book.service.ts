@@ -22,8 +22,10 @@ export class BookService {
   }
 
   updateBook(book: Book) {
-   return this.api.updateBook(book)
+    return this.api.updateBook(book)
   }
+
+
 
   formatDate(date: Date) {
     let dd;
@@ -35,7 +37,7 @@ export class BookService {
     return `${dd} ${mm} ${yy} г.`
   }
 
-  liked(e: Event, book: Book) {
+  liked(e: Event, book: Book) { 
     e.stopPropagation();
     let user: User | null = this.userservice.getUser();
     let idIndex!: number;
@@ -43,8 +45,8 @@ export class BookService {
       idIndex = index;
       return item === book.id
     })
-
-    if (liked) {
+   
+    if (liked || liked === 0) {
       user?.favoriteBooks.splice(idIndex, 1);
       book.liked.find((item, index) => {
         idIndex = index;
@@ -59,7 +61,7 @@ export class BookService {
 
     this.userservice.setUser(user)
     user ? this.userservice.updateUser(user) : null;
-    this.updateBook(book)
+    this.updateBook(book).subscribe()
   }
 
   // Вернуть массив книг автора

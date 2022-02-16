@@ -33,6 +33,7 @@ export class CardComponent implements OnInit {
   @Output() delBook = new EventEmitter();
 
   ngOnInit(): void {
+  
   }
 
   liked(e: Event, book: Book) {
@@ -40,12 +41,18 @@ export class CardComponent implements OnInit {
   }
 
   likedClass(book: Book) {
-    let id = this.userservice.getUser()?.favoriteBooks.find(item => item === book.id)
-    return id ? 'liked' : ''
+    if (this.userType !== 'guest') {
+      let id = this.userservice.getUser()?.favoriteBooks.find(item => item === book.id)
+      return id || id === 0 ? 'liked' : ''
+    } else { return '' }
   }
+
   goToBook(id: number) {
+    this.book.views = this.book.views + 1;
+    this.bookservis.updateBook(this.book).subscribe()
     this.router.navigate(['book', id]);
   }
+
   goToEditBook(id: number) {
     this.router.navigate(['editBook', id]);
   }

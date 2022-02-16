@@ -7,7 +7,7 @@
   position: relative;
   width: 160px;
   background-color: #d1caf3;
-  margin: 10px;
+  margin: 10px auto;
 
   .mat-icon-button.edit {
     position: absolute;
@@ -70,7 +70,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width:425px) {
   .mat-card {
    
     width: 80px;
