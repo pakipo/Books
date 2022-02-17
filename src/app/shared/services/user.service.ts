@@ -11,11 +11,14 @@ import { IUser } from '../interfaces/user';
   providedIn: 'root'
 })
 export class UserService {
-  private user!: User | null;
+  user!: User | null;
   userType: userType = userType.guest;
   userTypSubj = new Subject();
-  constructor(private http: HttpClient,
-    private api: ApiRequestService) { }
+
+  constructor(
+    private http: HttpClient,
+    private api: ApiRequestService
+  ) { }
 
   // проверка имени и пароля при авторизации
   userNamePassCheck(form: FormGroup): Observable<any> {

@@ -1,6 +1,6 @@
 <div class="formwin">
   <div class="formblock">
-    <form [formGroup]="formEntery" (ngSubmit)="submitEntForm(formEntery)">
+    <form [formGroup]="formEntery"   (keyup)="key($event,formEntery)" (submit)="submitEntForm(formEntery)">
 
       <div>
         <mat-form-field class="inp" appearance="fill">

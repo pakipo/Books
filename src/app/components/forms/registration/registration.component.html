@@ -1,6 +1,6 @@
 <div class="formwin">
   <div class="formblock">
-  <form [formGroup]="formRegistration" (ngSubmit)="submitRegForm(formRegistration)">
+  <form [formGroup]="formRegistration"  (keyup)="key($event,formRegistration)" (ngSubmit)="submitRegForm(formRegistration)">
 
     <mat-form-field class="inp" appearance="outline">
       <mat-label>Имя пользователя</mat-label>

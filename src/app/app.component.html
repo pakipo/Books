@@ -8,29 +8,37 @@
             reorder
           </span>
         </button>
+
         <mat-menu #menu="matMenu">
 
-          <button  mat-menu-item (click)="registration = true">Регистрация</button>
+          <button mat-menu-item (click)="registration = true">Регистрация</button>
           <button #login mat-menu-item class="login" (click)="enteryFormdisplayed()">{{ userType === 'guest' ? 'Вход' : 'Выход' }}</button>
         </mat-menu>
       </div>
       <div class="title">
-        <a
-           class="mainPage"
+        <a class="mainPage"
            (click)="mainPage()"
-             matTooltip="Главная"
-             [matTooltipPosition]="'right'">BOOKS</a>
+           matTooltip="Главная"
+           [matTooltipPosition]="'right'">BOOKS</a>
+      </div>
+      <div class="userNameMobile">
+        <p>{{getUserName()}}</p>
+
       </div>
       <div class="tool">
+        <div class="userName">
+          <p>{{getUserName()}}</p>
+
+        </div>
         <div class="btn">
-        
+
           <button mat-button (click)="registration = true">Регистрация</button>
           <button #login mat-button class="login" (click)="enteryFormdisplayed()">{{ userType === 'guest' ? 'Вход' : 'Выход' }}</button>
         </div>
         <!-- ДОДЕЛАТЬ
-          <div class="search">
-          <input type="text" value="" />
-        </div>-->
+    <div class="search">
+    <input type="text" value="" />
+  </div>-->
 
       </div>
     </mat-toolbar>

@@ -22,6 +22,15 @@
       height: 100%;
     }
 
+    .userNameMobile{
+        display:none
+
+    }
+    .userName {
+      font-size: 16px;
+      margin-right: 40px;
+    }
+
     .btn {
       display: flex;
       justify-content: space-around;
@@ -43,7 +52,7 @@
   .content {
     position: relative;
     padding: 5px;
-    width: 100;
+    width: 100%;
   }
 
 
@@ -99,6 +108,16 @@
     .toolBar {
       .menu {
         display: block;
+      }
+
+      .userNameMobile {
+        display: block;
+        font-size: 16px;
+        margin-right: 40px;
+      }
+
+      .userName {
+        display: none;
       }
 
       .title {

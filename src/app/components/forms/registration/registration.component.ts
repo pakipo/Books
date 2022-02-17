@@ -79,5 +79,10 @@ export class RegistrationComponent implements OnInit {
     }
   }
   formCancel() {
-    this.regClose.emit();}
+    this.regClose.emit();
+  }
+
+  key(e: any, form: FormGroup) {
+    if (e.code === 'Enter') this.submitRegForm(form)
+  }
 }

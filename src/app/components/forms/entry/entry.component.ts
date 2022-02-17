@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { take } from 'rxjs/operators';
+import {Router } from '@angular/router';
 import {
   UserService,
   userType,
@@ -24,7 +25,8 @@ export class EntryComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private userservice: UserService
+    private userservice: UserService,
+    private router: Router
   ) { }
   @Output() entryClose = new EventEmitter();
   @Output() regOpen = new EventEmitter();
@@ -46,6 +48,7 @@ export class EntryComponent implements OnInit {
           this.userservice.setUser(res);
           form.reset();
           this.entryClose.emit()
+          this.router.navigate(['main'])
         } else {
           form.get('password')?.setErrors({ passNameNone: true })
           form.get('userName')?.setErrors({ passNameNone: true })
@@ -74,5 +77,9 @@ export class EntryComponent implements OnInit {
   registrationFormView() {
     this.formEntery.reset();
     this.regOpen.emit();
+  }
+
+  key(e: any, form: FormGroup) {
+    if (e.code === 'Enter') this.submitEntForm(form)
   }
 }
