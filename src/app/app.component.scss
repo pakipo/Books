@@ -52,7 +52,8 @@
   .content {
     position: relative;
     padding: 5px;
-    width: 100%;
+    width: 1300px;
+    margin:0 auto
   }
 
 
@@ -98,68 +99,75 @@
   }
 }
 
-
-
-@media screen and (max-width: 769px) {
-
+@media screen and (max-width: 1300px) {
   .container {
-    width: 100%;
+    .content {
+      width: 100%;
+    }
+  }
+  }
 
-    .toolBar {
-      .menu {
-        display: block;
+
+  @media screen and (max-width: 769px) {
+
+    .container {
+      width: 100%;
+
+      .toolBar {
+        .menu {
+          display: block;
+        }
+
+        .userNameMobile {
+          display: block;
+          font-size: 16px;
+          margin-right: 40px;
+        }
+
+        .userName {
+          display: none;
+        }
+
+        .title {
+          margin: auto;
+        }
+
+        .btn {
+        }
+
+        .tool {
+          display: none;
+
+          .search {
+            input {
+            }
+          }
+        }
       }
 
-      .userNameMobile {
-        display: block;
-        font-size: 16px;
-        margin-right: 40px;
-      }
+      footer {
+        .footerWrap {
+          .footerSection {
+            color: #e8e7e0;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            padding-left: 5px;
+          }
 
-      .userName {
-        display: none;
-      }
-
-      .title {
-        margin: auto;
-      }
-
-      .btn {
-      }
-
-      .tool {
-        display: none;
-
-        .search {
-          input {
+          .mat-divider {
+            background-color: #e8e7e0;
           }
         }
       }
     }
-
-    footer {
-      .footerWrap {
-        .footerSection {
-          color: #e8e7e0;
-          font-size: 11px;
-          letter-spacing: 0.5px;
-          padding-left: 5px;
-        }
-
-        .mat-divider {
-          background-color: #e8e7e0;
-        }
-      }
-    }
   }
-}
 
 
-:hover .pReg {
-  cursor: pointer;
-  color: #673ab7;
-}
+  :hover .pReg {
+    cursor: pointer;
+    color: #673ab7;
+  }
 
-:hover .mainPage {
-  cursor: pointer;
-}
+  :hover .mainPage {
+    cursor: pointer;
+  }
