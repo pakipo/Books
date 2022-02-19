@@ -6,7 +6,6 @@ export class Book implements IBook {
   pageCount: number;
   style: styleBook;
   img: string | null;
-  shortDescription: string;
   autorId: number;
   releaseDate: Date | string;
   views!: number;
@@ -17,7 +16,6 @@ export class Book implements IBook {
     title: string,
     pageCount: number,
     style: styleBook,
-    shortDescription: string,
     img: string,
     autorId: number,
     releaseDate: Date | string,
@@ -29,7 +27,6 @@ export class Book implements IBook {
       ) {
     this.title = title;
     this.pageCount = pageCount;
-    this.shortDescription = shortDescription;
     this.style = style;
     img ? this.img = img : this.img = null;
     this.releaseDate = releaseDate;

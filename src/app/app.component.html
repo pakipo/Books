@@ -1,4 +1,4 @@
-<div class="container" style="background-image: url({{img}});  background-size: 100%;">
+<div class="container">
   <header>
     <!--toolbar start -->
     <mat-toolbar color="primary" class="toolBar">
@@ -10,7 +10,8 @@
         </button>
 
         <mat-menu #menu="matMenu">
-
+          <button mat-menu-item>Жанры</button>
+          <button mat-menu-item>Авторы</button>
           <button mat-menu-item (click)="registration = true">Регистрация</button>
           <button #login mat-menu-item class="login" (click)="enteryFormdisplayed()">{{ userType === 'guest' ? 'Вход' : 'Выход' }}</button>
         </mat-menu>
@@ -21,6 +22,12 @@
            matTooltip="Главная"
            [matTooltipPosition]="'right'">BOOKS</a>
       </div>
+
+      <div class="btnView">
+        <button mat-button>Жанры</button>
+        <button  mat-button >Авторы</button>
+      </div>
+
       <div class="userNameMobile">
         <p>{{getUserName()}}</p>
 
@@ -36,9 +43,9 @@
           <button #login mat-button class="login" (click)="enteryFormdisplayed()">{{ userType === 'guest' ? 'Вход' : 'Выход' }}</button>
         </div>
         <!-- ДОДЕЛАТЬ
-    <div class="search">
-    <input type="text" value="" />
-  </div>-->
+      <div class="search">
+      <input type="text" value="" />
+    </div>-->
 
       </div>
     </mat-toolbar>
@@ -70,32 +77,7 @@
   </div>
   <footer>
     <div class="footerWrap">
-      <div class="footerSection">
-        <h3>Section name</h3>
-        <p>Tincidunt integer eu augue augue.</p>
-        <p>Tincidunt integer eu augue augue.</p>
-        <p>Tincidunt integer eu augue augue.</p>
-        <p>Tincidunt integer eu augue augue.</p>
-        <p>Tincidunt integer eu augue augue.</p>
-      </div>
-      <mat-divider [vertical]="true"></mat-divider>
-      <div class="footerSection">
-        <h3>Section name</h3>
-        <p>Tincidunt integer eu augue augue.</p>
-        <p>Tincidunt integer eu augue augue.</p>
-        <p>Tincidunt integer eu augue augue.</p>
-        <p>Tincidunt integer eu augue augue.</p>
-      </div>
-      <mat-divider [vertical]="true"></mat-divider>
-      <div class="footerSection">
-        <h3>Section name</h3>
-        <p>Tincidunt integer eu augue augue.</p>
-        <p>Tincidunt integer eu augue augue.</p>
-        <p>Tincidunt integer eu augue augue.</p>
-        <p>Tincidunt integer eu augue augue.</p>
-        <p>Tincidunt integer eu augue augue.</p>
-        <p>Tincidunt integer eu augue augue.</p>
-      </div>
+      <p>2022 BOOKS - библиотека электронных книг</p>
     </div>
   </footer>
 </div>

@@ -28,13 +28,12 @@
         </p>
         <div><button mat-raised-button color="primary" (click)="biographyDisplayed()">Читать полностью</button></div>
       </div>
-      <div class="autorBooks">
-        <h2>Книги автора :</h2>
-        <div class="cards">
-          <ng-container *ngFor="let book of autorBooks">
-            <app-card [book]="book" [userType]="userType"></app-card>
-          </ng-container>
-        </div>
+      <div class="autorBooks" *ngIf="autorBooks.length !== 0">
+
+        <app-section [sectionTitle]="'Книги автора:'"
+                     [bookArr]="autorBooks"
+                     [userType]="userType" 
+                     [autorBookArr]="autor.dooksId.length"></app-section>
       </div>
     </ng-container>
   </div>

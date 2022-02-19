@@ -3,6 +3,7 @@ import {
   AutorService,
   UserService,
   BookService,
+  SectionComponent,
   Autor,
   styleBook,
   Book,

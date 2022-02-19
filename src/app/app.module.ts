@@ -20,7 +20,8 @@ import {
   CardComponent,
   BookComponent,
   MainComponent,
-  EntryComponent
+  EntryComponent,
+  SectionComponent
 } from './index'
 
 import { HttpClientModule } from '@angular/common/http';
@@ -48,6 +49,7 @@ import { RegistrationComponent } from './components/forms/registration/registrat
 import { MatDividerModule } from '@angular/material/divider';
 import { MatMenuModule } from '@angular/material/menu';
 
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 
 
@@ -71,6 +73,8 @@ import { MatMenuModule } from '@angular/material/menu';
     ModalWinComponent,
     EntryComponent,
     RegistrationComponent,
+    SectionComponent,
+   
   
    
   ],
@@ -99,9 +103,9 @@ import { MatMenuModule } from '@angular/material/menu';
     MatDialogModule,
     MatSidenavModule,
     MatDividerModule,
-    MatMenuModule
+    MatMenuModule,
 
-  
+  SlickCarouselModule
   
   ],
  

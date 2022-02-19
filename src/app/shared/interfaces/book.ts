@@ -7,7 +7,6 @@ export interface IBook {
   pageCount: number,
   style: styleBook,
   img: string | null,
-  shortDescription: string,
   autorId: number ,
   releaseDate: Date | string,
   views: number,

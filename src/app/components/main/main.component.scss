@@ -7,8 +7,8 @@
 .viewBooks {
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(170px,1fr));
-  margin:0 auto;
-
+  margin: 0 auto;
+grid-row-gap:20px;
 }
 
 @media screen and (max-width: 750px) {
@@ -22,12 +22,15 @@
 }
 
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 500px) {
   .viewBooks {
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(90px,1fr));
+    grid-template-columns: repeat(auto-fill,minmax(110px,1fr));
     margin: 0 auto;
   }
 }
 
-
+:hover.bookTitle{
+  cursor: pointer;
+  color: red;
+}

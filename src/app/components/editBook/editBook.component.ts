@@ -62,7 +62,6 @@ export class EditBookComponent implements OnInit {
         this.formInitState["title"] = this.book.title;
         this.formInitState["releaseDate"] = this.book.releaseDate;
         this.formInitState["pageCount"] = this.book.pageCount;
-        this.formInitState["shortDescription"] = this.book.shortDescription;
         this.formInitState["surname"] = this.autor.surname;
         this.formInitState["name"] = this.autor.name;
         this.formInitState["patronymic"] = this.autor.patronymic;
@@ -79,7 +78,7 @@ export class EditBookComponent implements OnInit {
           "releaseDate": [new Date(this.book.releaseDate)],
           "pageCount": [this.book.pageCount, [Validators.required, PageCountCheck]],
           "style": [this.book.style],
-          "shortDescription": [this.book.shortDescription, [Validators.required]]
+         
         }),
         this.fb.group({
           "surname": [this.autor.surname],

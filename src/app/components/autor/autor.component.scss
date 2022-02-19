@@ -15,11 +15,10 @@
     grid-template-columns: repeat(6, [col] 1fr);
     grid-template-rows: repeat(3, [row] auto);
     gap: 10px;
-    background-color: #bfe0e6f5;
     opacity: 0.9;
 
     img {
-      width: 200px;
+      width: 250px;
       height: 300px;
       margin: 10px;
     }
@@ -56,11 +55,7 @@
     }
   }
 
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(170px,1fr));
-
-  }
+ 
 }
 
 h2 {
@@ -99,10 +94,7 @@ button,.button {
       }
     }
   }
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(130px,1fr));
-  }
+ 
 
   h2 {
     font-size: 20px;
@@ -145,12 +137,5 @@ button,.button {
     }
   }
 
-@media screen and (max-width: 425px) {
-  .container {
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fill,minmax(90px,1fr));
-    }
-  }
-}
+
 

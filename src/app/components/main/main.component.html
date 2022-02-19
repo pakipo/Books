@@ -1,8 +1,8 @@
 
 
-<div class="viewBooks"  #viewBooks>
+<div class="viewBooks"   #viewBooks>
   <ng-container *ngFor="let book of allBooks">
-    <app-card [book]="book" (delBook)="booksArrInt()" [userType]="userType"></app-card>
+      <app-card [book]="book" (delBook)="booksArrInt()" [userType]="userType"></app-card>
   </ng-container>
 </div>
 

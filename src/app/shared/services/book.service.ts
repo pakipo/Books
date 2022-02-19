@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { map, concatMap } from 'rxjs/operators';
 import { ApiRequestService, UserService, Book, Month, User, styleBook } from '../../index';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -70,10 +70,11 @@ export class BookService {
     let book;
     
     if (books.length < 6) {
-      books.map((id) => {
+      books.map((id,index) => {
         this.getBook(id).subscribe(res => {
           book = res as Book;
           autorBooks.push(book);
+          if (index === books.length) { console.log('%%%%') }
         })
       })
     }
@@ -81,11 +82,10 @@ export class BookService {
       for (let i = 0; i < 6; i++) {
         this.getBook(books[i]).subscribe(res => {
           book = res as Book
-         autorBooks.push(book)
+          autorBooks.push(book)
         })
       }
     }
-
     return new Observable((s) => { s.next(autorBooks) })
   }
   // Вернуть массив книг в данном жанре

@@ -24,6 +24,7 @@ export * from "./shared/enum/userType"
 export * from "./shared/enum/date"
 export * from "./shared/enum/city"
 export * from "./shared/enum/ country"
+export * from "./shared/enum/biography"
 
 
 
@@ -36,6 +37,7 @@ export * from "./components/editBook/editBook.component"
 export * from "./components/card/card.component"
 export * from "./components/forms/entry/entry.component"
 export * from "./components/forms/registration/registration.component"
+export * from "./components/section/section.component"
 export * from "./shared/auxiliary/preloader/preloader.component"
 export * from "./shared/auxiliary/modal-win/modal-win.component"
 

@@ -1,5 +1,5 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
-
+import { Component, OnInit, Renderer2} from '@angular/core';
+import { ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'app-pdf-reader',
   templateUrl: './pdf-reader.component.html',
@@ -7,7 +7,8 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 })
 export class PdfReaderComponent implements OnInit {
   docLoad: boolean = false;
-  pdfSrc: string = '../assets/bookPdf/book1.pdf';
+  pdfpath: string = '../assets/bookPdf/';
+  bookPath!: string
   page: number = 1;
   pdfNumPages!: number;
   maxlength!: number;
@@ -15,10 +16,17 @@ export class PdfReaderComponent implements OnInit {
   zoom: number = 1;
   rotation: number = 0;
   constructor(
-    private renderer: Renderer2) { }
+    private renderer: Renderer2,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-
+    this.route.params.subscribe(par => {
+      this.bookPath = this.pdfpath + par.bookPdf;
+      console.log('!!!!')
+      console.log(par.bookPdf)
+      console.log(this.bookPath)
+    });
+  
   }
  // после загрузки документа
 

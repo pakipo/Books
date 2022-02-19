@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, Renderer2,ViewChild  } from '@angular/core';
 import {
+  SectionComponent,
   AutorService,
   UserService,
   BookService,
@@ -22,7 +23,7 @@ export class BookComponent implements OnInit{
   load: boolean = true;
   userType: userType = this.userservice.userType;
   booksLoad: boolean = false;
-  date!: string;
+  date!: number;
   book!: Book;
   bookId!: number;
   autor!: Autor;
@@ -44,8 +45,7 @@ export class BookComponent implements OnInit{
   @ViewChild('btnDownload') _btn!: ElementRef<HTMLButtonElement>;
 
   ngOnInit(): void {
-   
-
+    document.documentElement.scrollTop = 0
     this.userservice.userTypSubj.subscribe(res => {
       this.userType = res as userType
     })
@@ -66,8 +66,8 @@ export class BookComponent implements OnInit{
     this.bookService.getBook(this.bookId).pipe(
       //отображаемая книга
       map(book => {
-      this.book = book as Book;
-        this.date = this.bookService.formatDate(new Date(this.book.releaseDate));
+        this.book = book as Book;
+        this.date = new Date(this.book.releaseDate).getFullYear();
         this.pdfLink = this.renderer.createElement('a');
         this.renderer.setAttribute(this.pdfLink, 'href', this.pdfPath + this.book.pdfLink);
         this.renderer.setAttribute(this.pdfLink, 'download', this.book.pdfLink)

@@ -12,46 +12,44 @@
           <a  [routerLink] = "['/autor',autor.id]"
              matTooltip="Перейти к автору"
              [matTooltipPosition]="'right'">
-            <span *ngIf="!autor.patronymic && load" class="autor" onmouseover="style='color:#670890;'" onmouseout="style='color:ffffff;'" > {{autor.surname}} {{autor.name}}</span>
-            <span *ngIf="autor.patronymic && load" class="autor" onmouseover="style='color:#670890;'" onmouseout="style='color:ffffff;'" > {{autor.surname}} {{autor.name}} {{autor.patronymic}}</span>
+            <span *ngIf="!autor.patronymic && load" class="autors"  > {{autor.surname}} {{autor.name}}</span>
+            <span *ngIf="autor.patronymic && load" class="autors"  > {{autor.surname}} {{autor.name}} {{autor.patronymic}}</span>
           </a>
         </p>
         <p><span class="bold">Название:</span><span> {{book.title}}</span></p>
         <p><span class="bold">Жанр:</span><span> {{book.style}}</span></p>
         <p><span class="bold">Страниц:</span><span> {{book. pageCount}}</span></p>
-        <p><span class="bold">Дата выхода:</span><span> {{date}}</span></p>
-        <p><span class="bold">Просмотров:</span> <span>{{book.views}}</span></p>
-        <p><span class="bold">Понравилось:</span> <span>{{book.liked.length}}</span></p>
+        <p><span class="bold">Год издания:</span><span> {{date}}</span></p>
+        <p><span class="bold">Просмотров:</span> <span> {{book.views}}</span></p>
+        <p><span class="bold">Понравилось:</span> <span> {{book.liked.length}}</span></p>
+
         <div class="btns">
-          <button mat-raised-button color="primary" (click)="goToReader()">Читать</button>
-          <button #btnDownload mat-raised-button color="primary" (click)="downloadBook()">
-           
-         Скачать
+
+          <button mat-raised-button color="primary" (click)="goToReader()" [disabled]="userType === 'guest'">
+            <span matTooltip="Пожалуйста, авторизуйтесь чтобы читать книгу"
+                  [matTooltipPosition]="'below'"
+                  [matTooltipDisabled]="userType !== 'guest'">Читать</span>
+          </button>
+
+
+          <button #btnDownload mat-raised-button color="primary" (click)="downloadBook()" [disabled]="userType === 'guest'">
+            <span matTooltip="Пожалуйста, авторизуйтесь чтобы скачать книгу "
+                  [matTooltipPosition]="'below'"
+                  [matTooltipDisabled]="userType !== 'guest'">Скачать</span>
           </button>
         </div>
       </div>
 
-      <div class="autorBooks item">
-
-        <h2>Другие книги автора:</h2>
-        <div class="cards">
-
-
-          <ng-container *ngFor="let book of autorBooks">
-            <app-card [book]="book" [userType]="userType"></app-card>
-          </ng-container>
-
-        </div>
+      <div class="autorBooks item" *ngIf="autorBooks.length !== 0">
+        <app-section [sectionTitle]="'Другие книги автора:'"
+                     [bookArr]="autorBooks"
+                     [userType]="userType"></app-section>
       </div>
-      <div class="styleBooks item">
 
-        <h2>Другие книги в жанре <span>{{book.style[0].toLowerCase() + book.style.slice(1)}}:</span></h2>
-        <div class="cards">
-          <ng-container *ngFor="let book of styleBooks">
-            <app-card [book]="book" [userType]="userType"></app-card>
-          </ng-container>
-
-        </div>
+      <div class="styleBooks item" *ngIf="autorBooks.length !== 0">
+        <app-section [sectionTitle]="'Другие книги в жанре ' + book.style[0].toLowerCase()+book.style.slice(1)"
+                     [bookArr]="styleBooks"
+                     [userType]="userType"></app-section>
       </div>
     </ng-container>
   </div>

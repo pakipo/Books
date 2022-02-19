@@ -1,44 +1,46 @@
-<mat-card class="card" #card>
-  <img hoverCard
-       mat-card-image
-       src={{img}}{{book.img}}
-       alt="Photo of a Shiba Inu"
-       (click)="goToBook(book.id)"
-      />
-  <button *ngIf="userType==='admin'"
-          mat-icon-button
-          (click)="goToEditBook(book.id)"
-          class="edit"
-          matTooltip="Редактировать книгу"
-          [matTooltipPosition]="'right'">
-    <span><mat-icon>create</mat-icon></span>
-  </button>
-  <button *ngIf="userType==='admin'"
-          mat-icon-button
-          (click)="deleteBook(book.id)"
-          class="delete"
-          matTooltip="Удалить книгу"
-          [matTooltipPosition]="'right'">
-    <span><mat-icon>delete</mat-icon></span>
-  </button>
-  <mat-card-actions>
-    <div>
-      <button mat-icon-button
-              (click)="liked($event,book)"
-              [disabled]="userType === 'guest'"
-              matTooltip="Понравилось"
-              [matTooltipPosition]="'right'">
-        <mat-icon matTooltip="Понравилось"
-                  [matTooltipPosition]="'right'"
-                  [ngClass]="likedClass(book)">favorite</mat-icon>
-      </button><span>{{book.liked.length}}</span>
-    </div>
-    <div>
-      <button mat-icon-button
-              disabled>
-        <mat-icon matTooltip="Просмотров"
-                  [matTooltipPosition]="'right'">visibility</mat-icon>
-      </button><span>{{book.views}}</span>
-    </div>
-  </mat-card-actions>
-</mat-card>
+<div class="cardContainer">
+  <mat-card class="card" #card>
+    <img hoverCard
+         mat-card-image
+         src={{img}}{{book.img}}
+         alt="Photo of a Shiba Inu"
+         (click)="goToBook(book.id)" />
+    <button *ngIf="userType==='admin'"
+            mat-icon-button
+            (click)="goToEditBook(book.id)"
+            class="edit"
+            matTooltip="Редактировать книгу"
+            [matTooltipPosition]="'right'">
+      <span><mat-icon>create</mat-icon></span>
+    </button>
+    <button *ngIf="userType==='admin'"
+            mat-icon-button
+            (click)="deleteBook(book.id)"
+            class="delete"
+            matTooltip="Удалить книгу"
+            [matTooltipPosition]="'right'">
+      <span><mat-icon>delete</mat-icon></span>
+    </button>
+    <mat-card-actions>
+      <div>
+        <button mat-icon-button
+                (click)="liked($event,book)"
+                [disabled]="userType === 'guest'">
+          <mat-icon [matTooltip]="userType === 'guest'?
+                    'Пожалуйста, авторизуйтесь чтобы отметить книгу':
+                    'Понравилось'"
+                    [matTooltipPosition]="'below'"
+                    [ngClass]="likedClass(book)">favorite</mat-icon>
+        </button><span>{{book.liked.length}}</span>
+      </div>
+      <div>
+        <button mat-icon-button
+                disabled>
+          <mat-icon matTooltip="Просмотров"
+                    [matTooltipPosition]="'right'">visibility</mat-icon>
+        </button><span>{{book.views}}</span>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+  <p class="bookTitle" (click)="goToBook(book.id)" >{{book.title}}</p>
+</div>

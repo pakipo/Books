@@ -3,95 +3,142 @@
     padding:0;
     box-sizing:border-box;
 }
-.mat-card {
-  position: relative;
-  width: 160px;
-  background-color: #d1caf3;
-  margin: 10px auto;
-
-  .mat-icon-button.edit {
-    position: absolute;
-    top: 2px;
-    right: 2px;
-    background-color: rgb(255 255 255);
-    width: 30px;
-    height: 30px;
-    opacity: 0.8;
-  }
-
-  .mat-icon-button.delete {
-    position: absolute;
-    top: 2px;
-    right:34px;
-    background-color: rgb(255 255 255);
-    width: 30px;
-    height: 30px;
-    opacity: 0.8;
-  }
-
-  .mat-card-image {
-    height: 250px;
-    margin-bottom: 0;
+.cardContainer {
+  .mat-card {
+    position: relative;
     width: 160px;
-  }
+    background-color: rgba(209,202,243,0.5);
+    margin: 10px auto;
+    -webkit-box-shadow: 10px 10px 8px 0px rgba(70, 74, 77, 0.35);
+    -moz-box-shadow: 10px 10px 8px 0px rgba(70, 74, 77, 0.35);
+    box-shadow: 10px 10px 8px 0px rgba(70, 74, 77, 0.35);
 
-  .mat-card-actions {
-    display: flex;
-    justify-content: space-between;
+    .mat-icon-button.edit {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      background-color: rgb(255 255 255);
+      width: 30px;
+      height: 30px;
+      opacity: 0.8;
+    }
+
+    .mat-icon-button.delete {
+      position: absolute;
+      top: 2px;
+      right: 34px;
+      background-color: rgb(255 255 255);
+      width: 30px;
+      height: 30px;
+      opacity: 0.8;
+    }
+
+    .mat-card-image {
+      height: 250px;
+      margin-bottom: 0;
+      width: 160px;
+    }
+
+    .mat-card-actions {
+      display: flex;
+      justify-content: space-between;
 
 
-    .mat-icon {
-      color: #656564;
+      .mat-icon {
+        color: #656564;
 
-      .edit {
-        margin-left: 30%;
+        .edit {
+          margin-left: 30%;
+        }
+      }
+
+      .mat-icon.liked {
+        color: gold;
       }
     }
+  }
 
-    .mat-icon.liked {
-      color: gold;
-    }
+  p {
+    word-break: break-word;
+    color: white;
+    text-align: center;
+  }
+
+  :hover.bookTitle {
+    cursor: pointer;
+    color: #a8fafa;
   }
 }
 
 @media screen and (max-width: 750px) {
-  .mat-card {
-    width: 120px;
-    height:220px;
-
-    .mat-card-image {
-      height: 170px;
+  .cardContainer {
+    .mat-card {
       width: 120px;
-    }
-    .mat-card-actions {
-      padding:0;
+      height: 220px;
 
+      .mat-card-image {
+        height: 170px;
+        width: 120px;
+      }
+
+      .mat-card-actions {
+        padding: 0;
+      }
     }
   }
-}
-
-@media screen and (max-width:425px) {
-  .mat-card {
-   
-    width: 80px;
-    height: 180px;
-  
-    .mat-card-image {
-      height: 130px;
-      width: 80px;
-    }
-
-    .mat-card-actions {
-     
-      button {
-        width: 19px;
-        .mat-icon {
-          font-size: 16px;
-        }
  }
-        span {
-          font-size: 15px;
+
+@media screen and (max-width: 500px) {
+  .cardContainer {
+    .mat-card {
+      width: 100px;
+      height: 200px;
+
+      .mat-card-image {
+        height: 150px;
+        width: 100px;
+      }
+
+      button {
+        width: 25px;
+
+        .mat-icon {
+          font-size: 20px;
         }
+      }
+
+      span {
+        font-size: 15px;
+      }
     }
   }
 }
+
+@media screen and (max-width: 500px) {
+  .cardContainer {
+    .mat-card {
+      width: 100px;
+      height: 200px;
+
+      .mat-card-image {
+        height: 150px;
+        width: 100px;
+      }
+
+      button {
+        width: 25px;
+
+        .mat-icon {
+          font-size: 20px;
+        }
+      }
+
+      span {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+
+

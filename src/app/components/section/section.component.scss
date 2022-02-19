@@ -1,0 +1,51 @@
+.container {
+  position: relative;
+
+  .content {
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(170px,1fr));
+    }
+  }
+
+  .contentMobile {
+    display: none
+  }
+}
+
+p {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 750px) {
+  .container {
+    .content {
+      display: none;
+
+      .cards {
+        grid-template-columns: repeat(auto-fill,minmax(120px,1fr));
+      }
+    }
+
+    .contentMobile {
+      display: block;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    .content {
+      display: none;
+
+      .cards {
+        grid-template-columns: repeat(auto-fill,minmax(110px,1fr));
+      }
+    }
+
+    .contentMobile {
+      display: block;
+    }
+  }
+}
