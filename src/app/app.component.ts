@@ -70,8 +70,11 @@ export class AppComponent implements OnInit {
   }
 
   goToStylesList() {
-  
     this.router.navigate(['stylesList'])
+  }
+
+  goToAutorList() {
+    this.router.navigate(['autorList'])
   }
 }
 

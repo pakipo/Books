@@ -17,6 +17,9 @@ export class AutorService {
   updateAutor(autor: Autor) {
     return this.api.updateAutor(autor);
   }
-
+  getAutors() {
+    console.log('service')
+    return this.api.getAutors()
+  }
  
 }

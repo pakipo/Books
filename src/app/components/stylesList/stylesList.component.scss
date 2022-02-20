@@ -1,0 +1,23 @@
+.container {
+  p {
+    margin:0 25px;
+    padding-bottom:15px;
+    padding-top:15px;
+    color: blue;
+    border-bottom:1px solid black;
+  
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .container {
+    p {
+      margin: 0 20px;
+      font-size: 15px;
+      text-align: center;
+    }
+  }
+}
+  :hover p {
+    cursor: pointer;
+  }

@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef, Renderer2 } from '@angular/core';
+import { Component, OnInit,Input, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import {
   UserService,
   BookService,
@@ -13,7 +13,7 @@ import {
   styleUrls: ['./section.component.scss']
 })
 
-export class SectionComponent implements OnInit, AfterViewInit {
+export class SectionComponent implements OnInit{
 
   slideConfig = {
 
@@ -47,23 +47,12 @@ export class SectionComponent implements OnInit, AfterViewInit {
   @Input('sectionTitle') sectionTitle!: string;
   @Input('bookArr') bookArr!: Array<Book>;
   @Input('userType') userType!: userType;
-  @Input('autorBookArr') autorBookArr?: number;
+ 
 
   ngOnInit(): void {
   
   }
    
  
-  ngAfterViewInit() {
-    let renderer = () => {
-      let carousel = this.container.nativeElement.querySelector('.contentMobile')
-      let content = this.container.nativeElement.querySelector('.content')
-      this.render.setAttribute(carousel, 'style', 'display:none')
-      this.render.setAttribute(content, 'style', "display:block;")
-    }
-
-    if (this.autorBookArr && this.autorBookArr < 3 && document.documentElement.clientWidth < 750) {
-      renderer()
-    } else if ( !this.autorBookArr && this.bookArr.length < 3 && document.documentElement.clientWidth < 750) { renderer()}
-  }
+ 
 }

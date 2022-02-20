@@ -30,9 +30,13 @@ export class StylesAutorsBooksComponent implements OnInit {
     private auxiliary: AuxiliaryService,
     private route: ActivatedRoute
   ) { }
-  title!: string
+  title!: string;
+  id?: number;
+  bookArr!: Array<Book>
   ngOnInit(): void {
     this.title = this.route.snapshot.params.title
+    if (this.route.snapshot.params.id) { this.id = this.route.snapshot.params.id }
+
   }
 
 }

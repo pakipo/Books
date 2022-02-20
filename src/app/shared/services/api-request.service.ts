@@ -12,6 +12,7 @@ export class ApiRequestService {
 
 
   getAutors() {
+    console.log('ser')
     return this.http.get(apiEndPoints.autor)
   }
 

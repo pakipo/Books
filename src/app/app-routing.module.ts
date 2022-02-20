@@ -7,7 +7,8 @@ import {
   AutorComponent,
   PdfReaderComponent,
   StylesListComponent,
-  StylesAutorsBooksComponent
+  StylesAutorsBooksComponent,
+  AutorListComponent
 } from './index';
 import { AdminGuard } from './shared/guard/admin.guard';
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: "editBook/:id", canActivate:[AdminGuard], component: EditBookComponent },
   { path: "stilesAutorsBooks/:title", component: StylesAutorsBooksComponent },
   { path: "stylesList", component: StylesListComponent },
+  { path: "autorList", component: AutorListComponent },
  { path: "", redirectTo: "main", pathMatch: "full" }
  
 ];

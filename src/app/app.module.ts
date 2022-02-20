@@ -23,7 +23,8 @@ import {
   EntryComponent,
   SectionComponent,
   StylesListComponent,
-  StylesAutorsBooksComponent
+  StylesAutorsBooksComponent,
+  AutorListComponent
 } from './index'
 
 import { HttpClientModule } from '@angular/common/http';
@@ -60,6 +61,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,6 +81,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     SectionComponent,
     StylesListComponent,
     StylesAutorsBooksComponent,
+    AutorListComponent,
    
   
    
