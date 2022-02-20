@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2,ViewChild  } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import {
   SectionComponent,
   AutorService,
@@ -8,7 +8,8 @@ import {
   Autor,
   styleBook,
   Book,
-  userType,} from '../../index';
+  userType,
+} from '../../index';
 
 
 import { ActivatedRoute, Router } from '@angular/router';
@@ -19,7 +20,7 @@ import { Observable } from 'rxjs';
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.scss']
 })
-export class BookComponent implements OnInit{
+export class BookComponent implements OnInit {
   load: boolean = true;
   userType: userType = this.userservice.userType;
   booksLoad: boolean = false;
@@ -54,15 +55,15 @@ export class BookComponent implements OnInit{
       this.getCurBook()
     });
   }
- 
 
- 
+
+
   getCurBook() {
     this.autorBooks = [];
     this.styleBooks = [];
     this.load = false;
     this.auxiliary.preloaderCtrl(true);
-    
+
     this.bookService.getBook(this.bookId).pipe(
       //отображаемая книга
       map(book => {

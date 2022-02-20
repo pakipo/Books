@@ -4,13 +4,13 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\components",
-    "\\src\\app\\components\\book",
+    "\\src\\app\\components\\autor-list",
     "\\src\\app\\components\\main",
     "\\src\\app\\components\\section",
     "\\src\\app\\components\\stylesList",
     "\\src\\app\\shared",
     "\\src\\app\\shared\\services"
   ],
-  "SelectedNode": "\\src\\app\\components\\section\\section.component.ts",
+  "SelectedNode": "\\src\\app\\components\\autor-list\\autor-list.component.html",
   "PreviewInSolutionExplorer": false
 }

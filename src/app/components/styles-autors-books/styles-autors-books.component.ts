@@ -33,9 +33,34 @@ export class StylesAutorsBooksComponent implements OnInit {
   title!: string;
   id?: number;
   bookArr!: Array<Book>
+  userType: userType = this.userService.userType
+
+
   ngOnInit(): void {
+    this.auxiliary.preloaderCtrl(true)
+    this.userService.userTypSubj.subscribe(res => {
+      this.userType = res as userType
+    })
+
     this.title = this.route.snapshot.params.title
-    if (this.route.snapshot.params.id) { this.id = this.route.snapshot.params.id }
+    this.id = this.route.snapshot.params.id
+    if (!this.id) {
+      this.bookService.styleBooksInit(this.title as styleBook).subscribe(res => {
+        this.bookArr = res as Book[]
+        setTimeout(() => { this.auxiliary.preloaderCtrl(false) }, 500)
+      })
+    } else {
+      this.autorService.getAutor(this.id).pipe(map(res => {
+        let autor = res as Autor
+        return autor.dooksId
+      }),
+        concatMap((res) => {
+          return this.bookService.autorBooksInit(res as number[])
+        })).subscribe(res => {
+          this.bookArr = res as Book[]
+          setTimeout(() => { this.auxiliary.preloaderCtrl(false) }, 500)
+        })
+    }
 
   }
 

@@ -1,6 +1,8 @@
 <div class="container">
   <h2>{{title}}</h2>
   <div class="books">
-
+    <ng-container *ngFor="let book of bookArr">
+      <app-card [book]="book"  [userType]="userType"></app-card>
+    </ng-container>
   </div>
 </div>
