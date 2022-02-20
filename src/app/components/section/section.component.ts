@@ -26,8 +26,16 @@ export class SectionComponent implements OnInit, AfterViewInit {
         slidesToShow: 3,
         slidesToScroll: 1,
         infinite: true,
-      
-      } } ]
+      }   },
+  {
+      breakpoint:400,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        infinite: true,
+      }
+    
+    }]
      
   };
 

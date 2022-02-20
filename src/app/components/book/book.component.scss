@@ -8,14 +8,14 @@
 
   .content {
     width: 100%;
-    min-height: 100vh;
-    padding: 20px;
+    min-height: 100vh; 
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(6, [col] 1fr);
     grid-template-rows: repeat(3, [row] auto);
     gap: 10px;
     opacity: 0.9;
+
 
     img {
       width: 200px;
