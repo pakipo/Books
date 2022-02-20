@@ -10,8 +10,8 @@
         </button>
 
         <mat-menu #menu="matMenu">
-          <button mat-menu-item>Жанры</button>
-          <button mat-menu-item>Авторы</button>
+          <button mat-menu-item (click)="goToStylesList()">Жанры</button>
+          <button mat-menu-item (click)="goToStylesList()">Авторы</button>
           <button mat-menu-item (click)="registration = true">Регистрация</button>
           <button #login mat-menu-item class="login" (click)="enteryFormdisplayed()">{{ userType === 'guest' ? 'Вход' : 'Выход' }}</button>
         </mat-menu>
@@ -24,8 +24,8 @@
       </div>
 
       <div class="btnView">
-        <button mat-button>Жанры</button>
-        <button  mat-button >Авторы</button>
+        <button mat-button (click)="goToStylesList()">Жанры</button>
+        <button  mat-button (click)="goToStylesList()">Авторы</button>
       </div>
 
       <div class="userNameMobile">

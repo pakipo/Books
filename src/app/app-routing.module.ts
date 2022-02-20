@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EditBookComponent } from './components/editBook/editBook.component';
-import { MainComponent, BookComponent,AutorComponent,PdfReaderComponent } from './index';
+import {
+  MainComponent,
+  BookComponent,
+  AutorComponent,
+  PdfReaderComponent,
+  StylesListComponent,
+  StylesAutorsBooksComponent
+} from './index';
 import { AdminGuard } from './shared/guard/admin.guard';
 
 const routes: Routes = [
@@ -10,6 +17,8 @@ const routes: Routes = [
   { path: "autor/:id", component: AutorComponent },
   { path: "reader/:bookPdf", component: PdfReaderComponent },
   { path: "editBook/:id", canActivate:[AdminGuard], component: EditBookComponent },
+  { path: "stilesAutorsBooks/:title", component: StylesAutorsBooksComponent },
+  { path: "stylesList", component: StylesListComponent },
  { path: "", redirectTo: "main", pathMatch: "full" }
  
 ];

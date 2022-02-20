@@ -1,4 +1,5 @@
 import { Component, OnInit, Renderer2, } from '@angular/core';
+
 import {
   UserService,
   Autor,
@@ -66,6 +67,11 @@ export class AppComponent implements OnInit {
     } else {
       return this.userservice.user!.userName
     }
+  }
+
+  goToStylesList() {
+  
+    this.router.navigate(['stylesList'])
   }
 }
 

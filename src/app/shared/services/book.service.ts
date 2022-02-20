@@ -89,7 +89,8 @@ export class BookService {
     return new Observable((s) => { s.next(autorBooks) })
   }
   // Вернуть массив книг в данном жанре
-  styleBooksInit(style: styleBook, bookId: number) {
+  styleBooksInit(style: styleBook, bookId?: number) {
+    let i = 0
     let styleBooks: Book[] = [];
 
   return  this.getAllBooks().pipe(

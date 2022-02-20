@@ -1,0 +1,15 @@
+<div class="container">
+  <ng-container *ngFor="let books of  bookArr">
+    <div class="styleBlock">
+
+    </div>
+    <app-section [sectionTitle]="books.id +':'"
+                 [bookArr]="books.book"
+                 [userType]="userType"></app-section>
+
+    <p (click)="goToStyle(books.id)">смотреть все...</p>
+
+  </ng-container>
+</div>
+
+

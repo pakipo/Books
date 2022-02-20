@@ -47,7 +47,7 @@
       </div>
 
       <div class="styleBooks item" *ngIf="autorBooks.length !== 0">
-        <app-section [sectionTitle]="'Другие книги в жанре ' + book.style[0].toLowerCase()+book.style.slice(1)"
+        <app-section [sectionTitle]="'Другие книги в жанре ' + book.style[0].toLowerCase()+book.style.slice(1) + ':'"
                      [bookArr]="styleBooks"
                      [userType]="userType"></app-section>
       </div>

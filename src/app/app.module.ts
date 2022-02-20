@@ -21,7 +21,9 @@ import {
   BookComponent,
   MainComponent,
   EntryComponent,
-  SectionComponent
+  SectionComponent,
+  StylesListComponent,
+  StylesAutorsBooksComponent
 } from './index'
 
 import { HttpClientModule } from '@angular/common/http';
@@ -31,7 +33,7 @@ import { map } from 'rxjs/operators';
 import { Ng2TelInputModule } from 'ng2-tel-input';
 import {PdfViewerModule} from 'ng2-pdf-viewer';
 import { HoverBtnDirective } from './shared/directives/hover-btn.directive';
-
+//MATERIAL
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -57,6 +59,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,6 +77,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     EntryComponent,
     RegistrationComponent,
     SectionComponent,
+    StylesListComponent,
+    StylesAutorsBooksComponent,
    
   
    

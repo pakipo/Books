@@ -50,7 +50,7 @@ export class SectionComponent implements OnInit, AfterViewInit {
   @Input('autorBookArr') autorBookArr?: number;
 
   ngOnInit(): void {
- 
+  
   }
    
  
