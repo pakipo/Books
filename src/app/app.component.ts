@@ -63,7 +63,7 @@ export class AppComponent implements OnInit {
 
   getUserName() {
     if (this.userType === userType.guest) {
-      return 'Гость'
+      return 
     } else {
       return this.userservice.user!.userName
     }

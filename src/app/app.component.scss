@@ -12,6 +12,11 @@
     padding-left: 2%;
     display: flex;
     justify-content: space-between;
+    background-color: rgb(23,94,128);
+    -webkit-box-shadow: 0px -7px 17px 2px rgba(25, 109, 150, 1) inset;
+    -moz-box-shadow: 0px -7px 17px 2px rgba(25, 109, 150, 1) inset;
+    box-shadow: 0px -7px 17px 2px rgba(25, 109, 150, 1) inset;
+    color: white;
 
     .menu {
       display: none;
@@ -73,20 +78,21 @@
 
   footer {
     .footerWrap {
-    
-   
-      background-color: #673AB7;
-    
+      background-color: rgb(23,94,128);
+      -webkit-box-shadow: 0px -7px 17px 2px rgba(25, 109, 150, 1) inset;
+      -moz-box-shadow: 0px -7px 17px 2px rgba(25, 109, 150, 1) inset;
+      box-shadow: 0px -7px 17px 2px rgba(25, 109, 150, 1) inset;
       margin-top: 15px;
-      padding:20px;
+      padding: 20px;
       color: #e8e7e0;
       font-size: 13px;
       letter-spacing: 0.5px;
       padding-left: 5px;
-      p{
-          padding:0;
-          margin:0 auto;
-          text-align:center;
+
+      p {
+        padding: 0;
+        margin: 0 auto;
+        text-align: center;
       }
     }
   }

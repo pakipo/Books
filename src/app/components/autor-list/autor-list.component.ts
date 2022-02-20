@@ -41,8 +41,9 @@ export class AutorListComponent implements OnInit {
     this.auxiliary.preloaderCtrl(true)
 
     this.userService.userTypSubj.subscribe(res => {
-      this.userType = res as userType})
-    
+      this.userType = res as userType
+    })
+   
     this.autorService.getAutors().subscribe(res => {
       let autArr = res as Autor[]
       autArr.map((autor,index) => {

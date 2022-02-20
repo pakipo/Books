@@ -25,17 +25,13 @@
 
         <div class="btns">
 
-          <button mat-raised-button color="primary" (click)="goToReader()" [disabled]="userType === 'guest'">
-            <span matTooltip="Пожалуйста, авторизуйтесь чтобы читать книгу"
-                  [matTooltipPosition]="'below'"
-                  [matTooltipDisabled]="userType !== 'guest'">Читать</span>
+          <button mat-raised-button color="primary" (click)="goToReader()" >
+            <span >Читать</span>
           </button>
 
 
-          <button #btnDownload mat-raised-button color="primary" (click)="downloadBook()" [disabled]="userType === 'guest'">
-            <span matTooltip="Пожалуйста, авторизуйтесь чтобы скачать книгу "
-                  [matTooltipPosition]="'below'"
-                  [matTooltipDisabled]="userType !== 'guest'">Скачать</span>
+          <button #btnDownload mat-raised-button color="primary" (click)="downloadBook()" >
+            <span>Скачать</span>
           </button>
         </div>
       </div>

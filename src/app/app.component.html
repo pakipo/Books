@@ -1,7 +1,7 @@
 <div class="container">
   <header>
     <!--toolbar start -->
-    <mat-toolbar color="primary" class="toolBar">
+    <mat-toolbar class="toolBar">
       <div class="menu">
         <button mat-icon-button [matMenuTriggerFor]="menu">
           <span class="material-icons">
@@ -28,7 +28,7 @@
         <button  mat-button (click)="goToAutorList()">Авторы</button>
       </div>
 
-      <div class="userNameMobile">
+      <div class="userNameMobile" >
         <p>{{getUserName()}}</p>
 
       </div>
