@@ -64,12 +64,12 @@ export class BookService {
     this.updateBook(book).subscribe()
   }
 
-  // Вернуть массив книг автора
+  // Вернуть массив (до 7 книг) автора
   autorBooksInit(books: Array<number>) {
     let autorBooks: Book[] = [];
     let book;
     
-    if (books.length < 6) {
+    if (books.length < 7) {
       books.map((id,index) => {
         this.getBook(id).subscribe(res => {
           book = res as Book;
@@ -79,7 +79,7 @@ export class BookService {
       })
     }
     else {
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < 7; i++) {
         this.getBook(books[i]).subscribe(res => {
           book = res as Book
           autorBooks.push(book)
@@ -88,7 +88,7 @@ export class BookService {
     }
     return new Observable((s) => { s.next(autorBooks) })
   }
-  // Вернуть массив книг в данном жанре
+  // Вернуть массив (до 7 книг) в данном жанре
   styleBooksInit(style: styleBook, bookId?: number, autorId?: number) {
     let i = 0
     let styleBooks: Book[] = [];
@@ -115,4 +115,38 @@ export class BookService {
   deleteBook(id: number) {
     return this.api.deleteBook(id)
   }
+
+  //вернуть все книги жанра
+
+  getAllsyleBooks(style: styleBook) {
+    let i = 0
+    let styleBooks: Book[] = [];
+
+    return this.getAllBooks().pipe(
+      map(res => {
+        let arr = res as Array<Book>;
+        let arrStyle: Array<Book> = [];
+        arr.map(book => {
+          book.style === style ? arrStyle.push(book) : null;
+        })
+
+        return arrStyle;
+      }))
+  }
+
+ //вернуть все книги автора
+
+  getAllautorBooks(books: Array<number>) {
+    let autorBooks: Book[] = [];
+    let book;
+      books.map( (id) => {
+        this.getBook(id).subscribe(res => {
+          book = res as Book;
+          autorBooks.push(book);
+        })
+      })
+ 
+    return new Observable((s) => { s.next(autorBooks) })
+  }
+
 }

@@ -4,10 +4,10 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\components",
+    "\\src\\app\\components\\autor",
     "\\src\\app\\components\\book",
-    "\\src\\app\\components\\pdf-reader",
     "\\src\\app\\shared\\services"
   ],
-  "SelectedNode": "\\src\\app\\components\\book\\book.component.html",
+  "SelectedNode": "\\src\\app\\components\\autor\\autor.component.html",
   "PreviewInSolutionExplorer": false
 }

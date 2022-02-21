@@ -45,7 +45,7 @@ export class StylesAutorsBooksComponent implements OnInit {
     this.title = this.route.snapshot.params.title
     this.id = this.route.snapshot.params.id
     if (!this.id) {
-      this.bookService.styleBooksInit(this.title as styleBook).subscribe(res => {
+      this.bookService.getAllsyleBooks(this.title as styleBook).subscribe(res => {
         this.bookArr = res as Book[]
         setTimeout(() => { this.auxiliary.preloaderCtrl(false) }, 500)
       })
@@ -55,7 +55,7 @@ export class StylesAutorsBooksComponent implements OnInit {
         return autor.dooksId
       }),
         concatMap((res) => {
-          return this.bookService.autorBooksInit(res as number[])
+          return this.bookService.getAllautorBooks(res as number[])
         })).subscribe(res => {
           this.bookArr = res as Book[]
           setTimeout(() => { this.auxiliary.preloaderCtrl(false) }, 500)
