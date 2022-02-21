@@ -16,11 +16,13 @@
     grid-template-rows: repeat(3, [row] auto);
     gap: 10px;
     opacity: 0.9;
-
+    .img{
     img {
-      width: 250px;
-      height: 300px;
+      width: 300px;
+      height: 450px;
       margin: 10px;
+    }
+
     }
 
     .info {
@@ -54,8 +56,6 @@
       margin: 10px;
     }
   }
-
- 
 }
 
 h2 {
@@ -74,15 +74,23 @@ button,.button {
   .container {
 
     .content {
+      .img {
+        grid-row-start: 1;
+        grid-column-start: 3;
+        grid-column-end: 4;
 
-      img {
-        width: 150px;
-        height: 225px;
-        margin: 10px;
+        img {
+          width: 200px;
+          height: 300px;
+          margin: 10px;
+        }
       }
+
+
 
       .info {
         font-size: 14px;
+
         p {
           margin-top: 7px;
         }
@@ -90,7 +98,6 @@ button,.button {
 
       .biography {
         font-size: 14px;
-      
       }
     }
   }
@@ -106,36 +113,3 @@ button,.button {
   
   }
   }
-
-@media screen and (max-width: 450px) {
-  .container {
-
-    .content {
-
-      img {
-        width: 90px;
-        height: 135px;
-        margin: 5px;
-      }
-
-      .info {
-        font-size: 10px;
-      }
-
-        .biography {
-          font-size: 10px;
-        }
-      }
-    }
-
-    h2 {
-      font-size: 15px;
-    }
-
-    button, .button {
-      font-size: 10px;
-    }
-  }
-
-
-
