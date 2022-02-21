@@ -85,7 +85,7 @@ export class BookComponent implements OnInit {
       //массив книг автора
       concatMap((res) => {
         this.autorBooks = res as Array<Book>;
-        return this.bookService.styleBooksInit(this.book.style, this.book.id)
+        return this.bookService.styleBooksInit(this.book.style, this.book.id, this.autor.id)
       })
       //массив книг одного стиля
     ).subscribe((res) => {

@@ -89,7 +89,7 @@ export class BookService {
     return new Observable((s) => { s.next(autorBooks) })
   }
   // Вернуть массив книг в данном жанре
-  styleBooksInit(style: styleBook, bookId?: number) {
+  styleBooksInit(style: styleBook, bookId?: number, autorId?: number) {
     let i = 0
     let styleBooks: Book[] = [];
 
@@ -97,8 +97,8 @@ export class BookService {
       map( res => {
       let arr = res as Array<Book>;
       let arrStyle: Array<Book> = [];
-      arr.map(book => {
-        book.style === style && book.id !== bookId ? arrStyle.push(book) : null;
+        arr.map(book => {
+          book.style === style && book.id !== bookId && autorId !== book.autorId ? arrStyle.push(book) : null;
       })
      
       if (arrStyle.length < 7) {
