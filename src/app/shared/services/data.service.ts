@@ -31,6 +31,8 @@ export class DataService implements InMemoryDbService {
 
         new Autor('Дюма', 'Александр (отец)', new Date(1802, 6, 24), Ebiography.дюма, [22, 23, 24], 'дюма.jpg', 'Франция', '	Пюи', 'https://ru.wikipedia.org/wiki/%D0%94%D1%8E%D0%BC%D0%B0,_%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80_(%D0%BE%D1%82%D0%B5%D1%86)', 7, '', new Date(1870, 11, 5)),
 
+        new Autor('Азимов', 'Айзек', new Date(1920, 0, 2), Ebiography.азимов, [25,26,27,28,29,30,31], 'азимов.jpg', 'РСФСР', 'село Петровичи, Смоленская область', 'https://ru.wikipedia.org/wiki/%D0%90%D0%B7%D0%B8%D0%BC%D0%BE%D0%B2,_%D0%90%D0%B9%D0%B7%D0%B5%D0%BA',8, '', new Date(1992, 3, 6)),
+
       ];
 
     let users: IUser[] = [
@@ -95,6 +97,22 @@ export class DataService implements InMemoryDbService {
 
       new Book('Граф Монте-Кристо', 669, styleBook.History, 'монте-кристо.jpg', 7, new Date(1845, 0, 1), 24, 2, ['4', '5'], 'Graf_Monte-Kristo.pdf'),
 
+      new Book('Дуновение смерти', 488, styleBook.Fantastic, 'дуновение смерти.jpg', 8, new Date(1958, 0, 1), 25, 2, ['4', '5'], 'Dunovenie_smerti.pdf'),
+
+      new Book('Зеркальное отражение', 520, styleBook.Fantastic, 'зеркальное отражение.jpg', 8, new Date(1972, 0, 1), 26, 2, ['4', '5'], 'Zerkalnoe_otrazhenie.pdf'),
+
+      new Book('Академия и земля', 235, styleBook.Fantastic, 'академия и земля.jpg', 8, new Date(1986, 0, 1), 27, 2, ['4', '5'], 'Akademia_i_Zemlya.pdf'),
+
+      new Book('Академия на краю гибели', 415, styleBook.Fantastic, 'академия на краю гибели.jpg', 8, new Date(1982, 0, 1), 28, 2, ['4', '5'], 'Akademia_na_krayu_gibeli.pdf'),
+
+      new Book('Двухсотлетний человек', 38, styleBook.Fantastic, 'двухсотлетний человек.jpg', 8, new Date(1976, 0, 1), 29, 2, ['4', '5'], 'Dvukhsotletniy_chelovek.pdf'),
+
+      new Book('Сами боги', 221, styleBook.Fantastic, 'сами боги.jpg', 8, new Date(1972, 0, 1), 30, 2, ['4', '5'], 'Sami_bogi.pdf'),
+
+      new Book('Стальные пещеры', 384, styleBook.Fantastic, 'стальные пещеры.jpg', 8, new Date(1972, 0, 1), 31, 2, ['4', '5'], 'Stalnye_peschery.pdf'),
+
+    
+
    
 
       
@@ -105,3 +123,4 @@ export class DataService implements InMemoryDbService {
     return { autors, users, books};
   }
 }
+1986
