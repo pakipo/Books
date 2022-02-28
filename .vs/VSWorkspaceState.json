@@ -4,13 +4,13 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\components",
-    "\\src\\app\\components\\editBook",
+    "\\src\\app\\components\\book",
     "\\src\\app\\shared",
     "\\src\\app\\shared\\auxiliary",
     "\\src\\app\\shared\\auxiliary\\modal-win",
     "\\src\\app\\shared\\interfaces",
     "\\src\\app\\shared\\services"
   ],
-  "SelectedNode": "\\src\\app\\shared\\interfaces\\modalWinObj.ts",
+  "SelectedNode": "\\src\\app\\components\\book\\book.component.scss",
   "PreviewInSolutionExplorer": false
 }
